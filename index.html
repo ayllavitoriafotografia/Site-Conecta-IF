@@ -1,0 +1,2613 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conecta IF | IF Goiano – Campus Campos Belos</title>
+  <meta name="description" content="Plataforma digital que reúne projetos de ensino, pesquisa e extensão, avisos, eventos e oportunidades do Instituto Federal Goiano – Campus Campos Belos." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%2314532d%27/%3E%3Cpath d=%27M32 18L12 28l20 10 16-8v11h4V28L32 18zm-12 16v8c0 3.3 5.4 6 12 6s12-2.7 12-6v-8l-12 6-12-6z%27 fill=%27%23ffffff%27/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              950: '#0b1f14',
+              900: '#14532d',
+              800: '#166534',
+              700: '#15803d',
+              600: '#16a34a',
+              300: '#86efac',
+              100: '#dcfce7',
+              50: '#f0fdf4',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --primary-color: #14532d;
+      --primary-hover: #166534;
+      --light-green: #86efac;
+      --background-color: #f8faf9;
+      --surface-color: #ffffff;
+      --border-color: #e2e8f0;
+      --footer-bg: #0b1f14;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: #0f172a;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .view-enter {
+      animation: fadeSlideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .line-clamp-4 {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-100 selection:text-brand-900">
+
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-shadow" id="siteHeader">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegação principal">
+      <a href="#inicio" onclick="navigate('inicio'); return false;" class="flex items-center gap-3 transition-opacity hover:opacity-85" aria-label="Conecta IF — página inicial">
+        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-900 text-lg text-white shadow-sm">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </span>
+        <span class="flex flex-col leading-none">
+          <span class="font-heading text-xl font-extrabold tracking-tight text-brand-900 sm:text-2xl">Conecta IF</span>
+          <span class="mt-1 text-[0.58rem] font-bold uppercase tracking-[0.2em] text-slate-500">IF Goiano · Campos Belos</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-1 lg:flex">
+        <a href="#inicio" data-route="inicio" onclick="navigate('inicio'); return false;" class="nav-desktop-link rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-50 hover:text-brand-900">Início</a>
+        <a href="#projetos" data-route="projetos" onclick="navigate('projetos'); return false;" class="nav-desktop-link rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-50 hover:text-brand-900">Projetos</a>
+        <a href="#mural" data-route="mural" onclick="navigate('mural'); return false;" class="nav-desktop-link rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-50 hover:text-brand-900">Mural</a>
+        <a href="#agenda" data-route="agenda" onclick="navigate('agenda'); return false;" class="nav-desktop-link rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-50 hover:text-brand-900">Agenda</a>
+        <a href="#oportunidades" data-route="oportunidades" onclick="navigate('oportunidades'); return false;" class="nav-desktop-link rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-50 hover:text-brand-900">Oportunidades</a>
+        <a href="#sobre" data-route="sobre" onclick="navigate('sobre'); return false;" class="nav-desktop-link rounded-xl px-3.5 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-brand-50 hover:text-brand-900">Sobre</a>
+
+        <a href="#publicar" onclick="navigate('publicar'); return false;" class="ml-2 inline-flex items-center gap-2 rounded-full bg-brand-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand-800 hover:shadow">
+          <i class="fa-solid fa-pen-to-square text-xs"></i>
+          <span>Publicar</span>
+        </a>
+
+        <div id="desktopAuthContainer" class="relative ml-1.5"></div>
+      </div>
+
+      <button type="button" id="navOpenButton" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-brand-900 shadow-sm transition-colors hover:bg-brand-50 lg:hidden" aria-label="Abrir menu" aria-expanded="false">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </nav>
+  </header>
+
+  <div id="drawerBackdrop" class="fixed inset-0 z-50 hidden bg-slate-950/55 backdrop-blur-sm transition-opacity"></div>
+  <aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-out" aria-hidden="true">
+    <div class="flex shrink-0 items-center justify-between border-b border-slate-200 px-5 py-4">
+      <a href="#inicio" onclick="navigate('inicio'); closeDrawer(); return false;" class="flex items-center gap-3">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-900 text-base text-white">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </span>
+        <span class="flex flex-col leading-none">
+          <span class="font-heading text-lg font-extrabold text-brand-900">Conecta IF</span>
+          <span class="mt-1 text-[0.52rem] font-bold uppercase tracking-[0.2em] text-slate-500">IF Goiano · Campos Belos</span>
+        </span>
+      </a>
+      <button type="button" id="navCloseButton" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100" aria-label="Fechar menu">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <div id="mobileUserBanner" class="px-5 pt-4"></div>
+
+    <div class="flex-1 overflow-y-auto px-5 py-4">
+      <nav class="grid gap-1.5" aria-label="Menu do site">
+        <a href="#inicio" onclick="navigate('inicio'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-900"><i class="fa-solid fa-house"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Início</span><span class="text-xs text-slate-500">Visão geral do campus</span></span>
+        </a>
+        <a href="#projetos" onclick="navigate('projetos'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-900"><i class="fa-solid fa-diagram-project"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Projetos</span><span class="text-xs text-slate-500">Ensino, pesquisa e extensão</span></span>
+        </a>
+        <a href="#mural" onclick="navigate('mural'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-900"><i class="fa-solid fa-bullhorn"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Mural de avisos</span><span class="text-xs text-slate-500">Comunicados e inscrições</span></span>
+        </a>
+        <a href="#agenda" onclick="navigate('agenda'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-900"><i class="fa-solid fa-calendar-days"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Agenda</span><span class="text-xs text-slate-500">Eventos, oficinas e reuniões</span></span>
+        </a>
+        <a href="#oportunidades" onclick="navigate('oportunidades'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-900"><i class="fa-solid fa-lightbulb"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Oportunidades</span><span class="text-xs text-slate-500">Bolsas, seleções e voluntariado</span></span>
+        </a>
+        <a href="#sobre" onclick="navigate('sobre'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-900"><i class="fa-solid fa-circle-info"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Sobre</span><span class="text-xs text-slate-500">O Conecta IF e o campus</span></span>
+        </a>
+
+        <div class="my-2 border-t border-slate-100"></div>
+
+        <a href="#publicar" onclick="navigate('publicar'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-900 text-white"><i class="fa-solid fa-pen-to-square"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Publicar</span><span class="text-xs text-slate-500">Envie sua divulgação</span></span>
+        </a>
+        <a href="#meus-envios" onclick="navigate('meus-envios'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-900"><i class="fa-solid fa-inbox"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Meus envios</span><span class="text-xs text-slate-500">Acompanhe suas publicações</span></span>
+        </a>
+        <a href="#moderacao" onclick="navigate('moderacao'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-800"><i class="fa-solid fa-shield-halved"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Área do moderador</span><span class="text-xs text-slate-500">Gestão com código único</span></span>
+        </a>
+        <a href="#entrar" id="mobileAuthLink" onclick="navigate('entrar'); closeDrawer(); return false;" class="flex items-center gap-3.5 rounded-2xl p-3 transition-colors hover:bg-brand-50">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700"><i class="fa-solid fa-right-to-bracket"></i></span>
+          <span class="flex flex-col"><span class="font-heading text-sm font-bold text-slate-900">Entrar</span><span class="text-xs text-slate-500">Acesso com e-mail acadêmico</span></span>
+        </a>
+      </nav>
+
+      <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed text-slate-600">
+        <i class="fa-solid fa-circle-check mr-1 text-brand-700"></i>
+        Toda publicação enviada pelo formulário passa por revisão da equipe de moderação antes de aparecer no site.
+      </div>
+    </div>
+  </aside>
+
+  <main id="appRoot" class="flex-1 pt-[68px]"></main>
+
+  <footer class="bg-brand-950 px-5 pb-10 pt-16 text-white sm:px-8">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+        <div>
+          <a href="#inicio" onclick="navigate('inicio'); return false;" class="inline-flex items-center gap-3 transition-opacity hover:opacity-85">
+            <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-lg text-white">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </span>
+            <span class="flex flex-col leading-none">
+              <span class="font-heading text-xl font-bold text-white">Conecta IF</span>
+              <span class="mt-1 text-[0.55rem] font-bold uppercase tracking-[0.22em] text-white/60">IF Goiano · Campos Belos</span>
+            </span>
+          </a>
+          <p class="mt-5 max-w-sm text-sm leading-7 text-white/70">
+            Plataforma digital de comunicação e integração acadêmica do Instituto Federal Goiano – Campus Campos Belos.
+          </p>
+          <div class="mt-6 flex gap-2.5">
+            <a href="https://www.instagram.com/ifgoiano/" target="_blank" rel="noopener noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-brand-300 hover:bg-white/10 hover:text-white" aria-label="Instagram do IF Goiano"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@ifgoiano" target="_blank" rel="noopener noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-brand-300 hover:bg-white/10 hover:text-white" aria-label="Canal do IF Goiano no YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/ifgoiano" target="_blank" rel="noopener noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-brand-300 hover:bg-white/10 hover:text-white" aria-label="Facebook do IF Goiano"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.ifgoiano.edu.br/" target="_blank" rel="noopener noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition-colors hover:border-brand-300 hover:bg-white/10 hover:text-white" aria-label="Portal do IF Goiano"><i class="fa-solid fa-globe"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/90">Navegação</p>
+          <div class="mt-4 grid gap-2.5 text-sm text-white/70">
+            <a href="#inicio" onclick="navigate('inicio'); return false;" class="transition-colors hover:text-brand-300">Início</a>
+            <a href="#projetos" onclick="navigate('projetos'); return false;" class="transition-colors hover:text-brand-300">Projetos</a>
+            <a href="#mural" onclick="navigate('mural'); return false;" class="transition-colors hover:text-brand-300">Mural de avisos</a>
+            <a href="#agenda" onclick="navigate('agenda'); return false;" class="transition-colors hover:text-brand-300">Agenda do campus</a>
+            <a href="#oportunidades" onclick="navigate('oportunidades'); return false;" class="transition-colors hover:text-brand-300">Oportunidades</a>
+            <a href="#sobre" onclick="navigate('sobre'); return false;" class="transition-colors hover:text-brand-300">Sobre o Conecta IF</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/90">Publicações</p>
+          <div class="mt-4 grid gap-2.5 text-sm text-white/70">
+            <a href="#publicar" onclick="navigate('publicar'); return false;" class="transition-colors hover:text-brand-300">Enviar publicação</a>
+            <a href="#meus-envios" onclick="navigate('meus-envios'); return false;" class="transition-colors hover:text-brand-300">Meus envios</a>
+            <a href="#entrar" onclick="navigate('entrar'); return false;" class="transition-colors hover:text-brand-300">Entrar com e-mail acadêmico</a>
+            <a href="#moderacao" onclick="navigate('moderacao'); return false;" class="transition-colors hover:text-brand-300">Área do moderador</a>
+            <a href="#mural" onclick="navigate('mural'); return false;" class="transition-colors hover:text-brand-300">Últimos avisos</a>
+            <a href="#agenda" onclick="navigate('agenda'); return false;" class="transition-colors hover:text-brand-300">Próximos eventos</a>
+            <a href="#oportunidades" onclick="navigate('oportunidades'); return false;" class="transition-colors hover:text-brand-300">Bolsas e seleções</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/90">Contato</p>
+          <ul class="mt-4 grid gap-3.5 text-sm text-white/70">
+            <li class="flex gap-3">
+              <i class="fa-solid fa-location-dot mt-1 text-brand-300"></i>
+              <span>GO-118, Km 3, Zona Rural<br />Campos Belos – GO</span>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa-solid fa-envelope mt-1 text-brand-300"></i>
+              <a href="mailto:comunicacao.camposbelos@ifgoiano.edu.br" class="break-all transition-colors hover:text-brand-300">comunicacao.camposbelos@ifgoiano.edu.br</a>
+            </li>
+            <li class="flex gap-3">
+              <i class="fa-regular fa-clock mt-1 text-brand-300"></i>
+              <span>Segunda a sexta, 8h às 18h</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col gap-3 border-t border-white/15 pt-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <p>© 2026 Conecta IF · Instituto Federal Goiano – Campus Campos Belos</p>
+        <p>Projeto de extensão desenvolvido por estudantes e servidores do campus.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="pointer-events-none fixed bottom-6 right-6 z-40 inline-flex h-12 w-12 translate-y-4 items-center justify-center rounded-full bg-brand-900 text-white opacity-0 shadow-lg transition-all duration-300 hover:bg-brand-800 focus:outline-none" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up text-sm"></i>
+  </button>
+
+  <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm">
+    <div class="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white shadow-2xl" id="detailModalContent"></div>
+  </div>
+
+  <div id="modFormModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm">
+    <div class="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8" id="modFormModalContent"></div>
+  </div>
+
+  <div id="rejectModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm">
+    <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl sm:p-7">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-red-100 text-red-700"><i class="fa-solid fa-ban"></i></span>
+          <h3 class="mt-3 font-heading text-xl font-bold text-slate-900">Recusar publicação</h3>
+          <p class="mt-1 text-sm text-slate-500">Informe o motivo para que o autor consiga ajustar e reenviar em "Meus envios".</p>
+        </div>
+        <button type="button" onclick="closeRejectModal()" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="rejectForm" class="mt-5 space-y-4">
+        <input type="hidden" id="rejectSubmissionId" />
+        <div>
+          <label for="rejectReasonInput" class="block text-xs font-bold uppercase tracking-wider text-slate-600">Justificativa da moderação *</label>
+          <textarea id="rejectReasonInput" rows="3" required placeholder="Ex.: Faltou informar o local ou a data limite de inscrição." class="mt-1.5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100"></textarea>
+        </div>
+        <div class="flex justify-end gap-2.5 pt-2">
+          <button type="button" onclick="closeRejectModal()" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">Cancelar</button>
+          <button type="submit" class="rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-700">Confirmar recusa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="confirmModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4 backdrop-blur-sm">
+    <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
+      <div class="flex items-start gap-4">
+        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-700"><i class="fa-solid fa-triangle-exclamation"></i></span>
+        <div>
+          <h3 id="confirmTitle" class="font-heading text-lg font-bold text-slate-900">Confirmar ação</h3>
+          <p id="confirmMessage" class="mt-1 text-sm leading-relaxed text-slate-600"></p>
+        </div>
+      </div>
+      <div class="mt-6 flex justify-end gap-2.5">
+        <button type="button" id="confirmCancelBtn" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">Cancelar</button>
+        <button type="button" id="confirmOkBtn" class="rounded-xl bg-red-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-700">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="pointer-events-none fixed bottom-5 left-1/2 z-50 flex w-full max-w-md -translate-x-1/2 flex-col gap-2 px-4"></div>
+
+  <script>
+    const STORAGE_KEY = 'conecta_if_cb_data_v2';
+    const MODERATOR_SECRET = 'conectaif2026';
+    const ALLOWED_DOMAINS = ['@ifgoiano.edu.br', '@estudante.ifgoiano.edu.br'];
+
+    const FALLBACK_HERO = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%2314532d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2386efac' font-family='sans-serif' font-size='42' font-weight='700'%3EIF Goiano - Campus Campos Belos%3C/text%3E%3C/svg%3E";
+    const FALLBACK_CARD = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%2314532d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23dcfce7' font-family='sans-serif' font-size='36' font-weight='700'%3EConecta IF%3C/text%3E%3C/svg%3E";
+
+    function getDefaultData() {
+      return {
+        projects: [
+          {
+            id: 'proj-1',
+            title: 'Clube de Teatro Alma Cênica IV Edição',
+            axis: 'Extensão',
+            modality: 'Monitoria',
+            coordinator: 'Coordenação de Extensão · Campus Campos Belos',
+            image: './img/teatro-alma-cenica.jpg',
+            description: 'O projeto de extensão "Clube de Teatro Alma Cênica" visa promover a arte teatral como ferramenta de expressão criativa, desenvolvimento pessoal e conscientização cidadã, através da criação e apresentação de peças teatrais para estudantes de escolas do município campos-belense. Além disso, propõe-se levar essa arte também para uma escola da comunidade quilombola da Vazante e para crianças em situação de vulnerabilidade social, como as do abrigo de Campos Belos. Com base em uma abordagem socioeducativa, o projeto "Clube de Teatro Alma Cênica" já está em execução desde o ano de 2023.',
+            howToJoin: 'Inscrições abertas no início do semestre junto à coordenação de extensão ou durante os ensaios semanais no auditório.'
+          },
+          {
+            id: 'proj-2',
+            title: 'IFocus: Lentes Livres',
+            axis: 'Ensino',
+            modality: 'Monitoria',
+            coordinator: 'Protagonismo Estudantil (Aylla) & Docentes Orientadores',
+            image: './img/ifocus-lentes-livres.jpg',
+            description: 'O projeto IFocus – Lentes Livres propõe a continuidade e ampliação de uma iniciativa discente que articula fotografia, cinema e reflexão crítica sobre a realidade social. Integrando conhecimentos da Sociologia, da Física (especialmente óptica), das Artes e da linguagem audiovisual, o projeto busca desenvolver um olhar sensível e analítico sobre o mundo social, estimulando a expressão estética e a leitura crítica das imagens. A proposta valoriza o protagonismo estudantil, tendo como destaque a organização conduzida pela estudante Aylla, e amplia, em 2026, sua atuação com a incorporação mais sistemática das artes visuais e do cinema.',
+            howToJoin: 'Estudantes interessados em fotografia, cinema e artes visuais podem participar das rodas de conversa e oficinas divulgadas na Agenda.'
+          },
+          {
+            id: 'proj-3',
+            title: 'Tecnologia que Transforma II: Do Tinkercad à Impressão 3D Personalizada para Estudantes da Rede Pública',
+            axis: 'Extensão',
+            modality: 'Curso de Extensão',
+            coordinator: 'Núcleo de Informática e Prototipagem 3D',
+            image: './img/tecnologia-3d.jpg',
+            description: 'O projeto de extensão "Tecnologia que Transforma II: Do Tinkercad à Impressão 3D Personalizada para Estudantes da Rede Pública" constitui a continuidade das ações iniciadas no projeto "Tecnologia que Transforma: Formação em Modelagem 3D para Estudantes da Rede Pública". A proposta visa promover a inclusão digital e tecnológica de estudantes do Ensino Fundamental II da rede pública de Campos Belos-GO por meio da realização de duas oficinas práticas: uma oficina introdutória de modelagem tridimensional utilizando a plataforma Tinkercad e uma oficina de impressão 3D, na qual os participantes poderão produzir chaveiros personalizados contendo seus próprios nomes.',
+            howToJoin: 'Vagas para monitores estudantes do campus e agendamento aberto para turmas do Ensino Fundamental II das escolas públicas municipais e estaduais.'
+          },
+          {
+            id: 'proj-4',
+            title: 'Apicultura Sustentável no Cerrado',
+            axis: 'Pesquisa',
+            modality: 'Iniciação Científica (PIBIC)',
+            coordinator: 'Coordenação de Pesquisa · Escola-Fazenda',
+            image: './img/hero-campus.avif',
+            description: 'Pesquisa aplicada ao manejo sustentável de colmeias e análise da flora melífera do Cerrado no nordeste goiano, integrando coletas de campo na Escola-Fazenda e análises laboratoriais com participação de estudantes bolsistas e voluntários.',
+            howToJoin: 'Acompanhe os editais PIBIC na aba Oportunidades ou procure a coordenação na Escola-Fazenda para vagas voluntárias.'
+          }
+        ],
+        notices: [
+          {
+            id: 'not-1',
+            type: 'Comunicado',
+            publishedAt: '26/10/2026',
+            title: 'Chamada de trabalhos para a Semana Nacional de Ciência e Tecnologia',
+            description: 'Estudantes e servidores podem submeter resumos de trabalhos até 27 de novembro para apresentação durante o evento no campus.',
+            deadline: '27/11/2026',
+            author: 'Diretoria de Pesquisa, Pós-Graduação e Inovação'
+          },
+          {
+            id: 'not-2',
+            type: 'Inscrição',
+            publishedAt: '22/02/2026',
+            title: 'Seleção para monitoria de Matemática: inscrições até 10 de março',
+            description: 'São duas vagas de monitoria remunerada e duas de monitoria voluntária para o Laboratório de Aprendizagem em Matemática.',
+            deadline: '10/03/2026',
+            author: 'Coordenação de Ensino'
+          },
+          {
+            id: 'not-3',
+            type: 'Reunião',
+            publishedAt: '20/02/2026',
+            title: 'Reunião de pais e responsáveis',
+            description: 'Reunião na terça-feira, 25 de fevereiro, às 14h, no Auditório Zara Hoffmann, para deliberar sobre ajustes no calendário acadêmico.',
+            deadline: '25/02/2026',
+            author: 'Direção-Geral · Campus Campos Belos'
+          },
+          {
+            id: 'not-4',
+            type: 'Comunicado',
+            publishedAt: '18/02/2026',
+            title: 'Renovação de cadastro na Biblioteca do Campus',
+            description: 'Estudantes veteranos e ingressantes devem atualizar o cadastro acadêmico na biblioteca para empréstimo de livros e acesso às cabines de estudo.',
+            deadline: '15/03/2026',
+            author: 'Biblioteca do Campus Campos Belos'
+          },
+          {
+            id: 'not-5',
+            type: 'Inscrição',
+            publishedAt: '15/02/2026',
+            title: 'Auxílio Permanência 2026 — entrega de documentação socioeconômica',
+            description: 'A Assistência Estudantil informa a abertura do prazo para envio de documentos referentes ao edital de assistência estudantil.',
+            deadline: '20/03/2026',
+            author: 'Núcleo de Assistência Estudantil'
+          }
+        ],
+        events: [
+          {
+            id: 'evt-1',
+            date: '12/03/2026',
+            time: '19:00',
+            category: 'Palestra',
+            title: 'Aula Magna 2026: ciência, território e futuro',
+            description: 'Abertura oficial do ano letivo com palestra sobre ciência aplicada ao desenvolvimento regional e apresentação dos projetos em destaque no campus.',
+            location: 'Auditório Zara Hoffmann'
+          },
+          {
+            id: 'evt-2',
+            date: '28/03/2026',
+            time: '08:30',
+            category: 'Oficina',
+            title: 'Oficina de drones aplicados à agropecuária',
+            description: 'Oficina prática sobre planejamento de voo, mapeamento topográfico e análise de imagens aéreas para monitoramento de lavouras.',
+            location: 'Escola-Fazenda do IF Goiano'
+          },
+          {
+            id: 'evt-3',
+            date: '18/04/2026',
+            time: '09:00',
+            category: 'Competição',
+            title: 'Competição de Robótica Conecta IF',
+            description: 'Equipes de escolas da região competem em três modalidades: seguidor de linha, sumô e resolução de problemas. Inscrições abertas para equipes do campus.',
+            location: 'Auditório Zara Hoffmann'
+          },
+          {
+            id: 'evt-4',
+            date: '07/05/2026',
+            time: '14:00',
+            category: 'Oficina',
+            title: 'Mostra Fotográfica IFocus & Roda de Conversa',
+            description: 'Exposição aberta dos ensaios produzidos pelos estudantes e debate sobre linguagem audiovisual e olhar social.',
+            location: 'Hall Principal do Campus'
+          },
+          {
+            id: 'evt-5',
+            date: '22/05/2026',
+            time: '18:30',
+            category: 'Reunião',
+            title: 'Encontro de Coordenadores de Projetos de Extensão',
+            description: 'Alinhamento de cronogramas, prestação de contas e divulgação de ações de extensão junto à comunidade externa.',
+            location: 'Sala de Reuniões da Direção'
+          }
+        ],
+        opportunities: [
+          {
+            id: 'opp-1',
+            type: 'Estágio',
+            deadline: '08/03/2026',
+            title: 'Seleção de estagiários — Comunicação e Marketing',
+            description: 'Apoio na produção de conteúdo, cobertura de eventos e gestão das redes sociais do campus, com supervisão da equipe de comunicação.',
+            benefit: 'Bolsa-estágio de R$ 900,00 + auxílio-transporte',
+            requirements: 'Estar regularmente matriculado no campus e ter disponibilidade de 20h semanais.'
+          },
+          {
+            id: 'opp-2',
+            type: 'Bolsa',
+            deadline: '12/03/2026',
+            title: 'Monitoria remunerada — Laboratório de Informática',
+            description: 'Apoio aos professores no suporte técnico dos laboratórios e no atendimento às turmas dos cursos de informática do campus.',
+            benefit: 'R$ 400,00 mensais por oito meses',
+            requirements: 'Estudante dos cursos técnicos ou superiores de Informática com bom rendimento acadêmico.'
+          },
+          {
+            id: 'opp-3',
+            type: 'Bolsa',
+            deadline: '20/03/2026',
+            title: 'Bolsa de Iniciação Científica (PIBIC) — apicultura no Cerrado',
+            description: 'Duas cotas para atuação no projeto Apicultura Sustentável no Cerrado, com coletas de campo, monitoramento de colmeias e análises em laboratório.',
+            benefit: 'R$ 700,00 mensais por 12 meses',
+            requirements: 'Disponibilidade para atividades na Escola-Fazenda e cadastro ativo na Plataforma Lattes.'
+          },
+          {
+            id: 'opp-4',
+            type: 'Voluntariado',
+            deadline: '25/03/2026',
+            title: 'Voluntariado — Clube de Teatro Alma Cênica',
+            description: 'Chamada para estudantes interessados em atuar na produção cênica, apoio logístico e oficinas nas escolas parceiras.',
+            benefit: 'Certificado de 60h de atividades complementares',
+            requirements: 'Interesse por artes cênicas e disponibilidade para encontros semanais no contraturno.'
+          },
+          {
+            id: 'opp-5',
+            type: 'Seleção',
+            deadline: '30/03/2026',
+            title: 'Monitoria voluntária — Laboratório de Aprendizagem em Matemática',
+            description: 'Apoio em horários de atendimento e resolução de exercícios para turmas do ensino médio integrado.',
+            benefit: 'Certificado de monitoria acadêmica (80h)',
+            requirements: 'Ter cursado ou estar cursando disciplinas da área com média igual ou superior a 7,0.'
+          }
+        ],
+        submissions: [
+          {
+            id: 'sub-init-1',
+            kind: 'notice',
+            status: 'pendente',
+            submittedAt: '21/11/2026',
+            authorEmail: 'maria.silva@estudante.ifgoiano.edu.br',
+            authorName: 'Maria Silva',
+            authorRole: 'Estudante',
+            rejectionReason: '',
+            payload: {
+              type: 'Inscrição',
+              publishedAt: '23/11/2026',
+              title: 'Oficina introdutória de Git e GitHub para iniciantes',
+              description: 'Atividade prática voltada para estudantes de todos os cursos interessados em aprender controle de versão, trabalho em equipe e publicação de portfólios acadêmicos no GitHub.',
+              deadline: '05/12/2026',
+              author: 'Maria Silva (Estudante · Informática)'
+            }
+          },
+          {
+            id: 'sub-init-2',
+            kind: 'event',
+            status: 'pendente',
+            submittedAt: '22/11/2026',
+            authorEmail: 'joao.souza@ifgoiano.edu.br',
+            authorName: 'Prof. João Souza',
+            authorRole: 'Servidor',
+            rejectionReason: '',
+            payload: {
+              date: '05/06/2026',
+              time: '08:00',
+              category: 'Oficina',
+              title: 'Semana do Meio Ambiente — Plantio de Mudas Nativas',
+              description: 'Ação coletiva de plantio de espécies nativas do Cerrado nas áreas verdes do campus com participação de estudantes, servidores e escolas convidadas.',
+              location: 'Área Verde / Escola-Fazenda do IF Goiano'
+            }
+          }
+        ],
+        accounts: [
+          {
+            name: 'Maria Silva',
+            role: 'Estudante',
+            email: 'maria.silva@estudante.ifgoiano.edu.br',
+            password: '123456'
+          },
+          {
+            name: 'Prof. João Souza',
+            role: 'Servidor',
+            email: 'joao.souza@ifgoiano.edu.br',
+            password: '123456'
+          }
+        ],
+        currentUser: null,
+        isModerator: false
+      };
+    }
+
+    let state = loadState();
+    let currentRoute = 'inicio';
+    let postLoginRedirect = null;
+    let modActiveTab = 'pendentes';
+
+    const filters = {
+      projetos: { q: '', axis: 'Todos' },
+      mural: { q: '', type: 'Todos' },
+      agenda: { q: '', category: 'Todos' },
+      oportunidades: { q: '', type: 'Todos' }
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return getDefaultData();
+        const parsed = JSON.parse(raw);
+        return {
+          ...getDefaultData(),
+          ...parsed
+        };
+      } catch (err) {
+        console.warn('Erro ao ler localStorage, usando estado padrão:', err);
+        return getDefaultData();
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (err) {
+        console.warn('Não foi possível salvar no localStorage:', err);
+      }
+    }
+
+    function esc(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function isAcademicEmail(email) {
+      const normalized = String(email || '').trim().toLowerCase();
+      const basicEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!basicEmailRegex.test(normalized)) return false;
+      return ALLOWED_DOMAINS.some(domain => normalized.endsWith(domain));
+    }
+
+    function formatTodayBR() {
+      const d = new Date();
+      const dd = String(d.getDate()).padStart(2, '0');
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const yyyy = d.getFullYear();
+      return `${dd}/${mm}/${yyyy}`;
+    }
+
+    function isoToBR(isoDate) {
+      if (!isoDate) return '';
+      if (isoDate.includes('/')) return isoDate;
+      const parts = isoDate.split('-');
+      if (parts.length !== 3) return isoDate;
+      return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    }
+
+    function brToIso(brDate) {
+      if (!brDate) return '';
+      if (brDate.includes('-')) return brDate;
+      const parts = brDate.split('/');
+      if (parts.length !== 3) return '';
+      return `${parts[2]}-${parts[1]}-${parts[0]}`;
+    }
+
+    function splitDateChip(brDate) {
+      const parts = String(brDate || '01/01/2026').split('/');
+      return {
+        day: parts[0] || '--',
+        monthYear: parts.length === 3 ? `${parts[1]}/${parts[2]}` : brDate
+      };
+    }
+
+    function getKindLabel(kind) {
+      const map = {
+        project: 'Projeto',
+        notice: 'Aviso no Mural',
+        event: 'Evento na Agenda',
+        opportunity: 'Oportunidade'
+      };
+      return map[kind] || kind;
+    }
+
+    function getAxisBadgeClass(axis) {
+      if (axis === 'Extensão') return 'bg-emerald-100 text-emerald-900 border-emerald-200';
+      if (axis === 'Pesquisa') return 'bg-sky-100 text-sky-900 border-sky-200';
+      if (axis === 'Ensino') return 'bg-amber-100 text-amber-900 border-amber-200';
+      return 'bg-brand-100 text-brand-900 border-brand-200';
+    }
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toastContainer');
+      const el = document.createElement('div');
+      const styles = {
+        success: 'bg-brand-900 text-white border-brand-700',
+        error: 'bg-red-700 text-white border-red-500',
+        info: 'bg-slate-900 text-white border-slate-700'
+      };
+      const icons = {
+        success: 'fa-circle-check text-brand-300',
+        error: 'fa-circle-exclamation text-red-200',
+        info: 'fa-circle-info text-sky-300'
+      };
+      el.className = `pointer-events-auto flex items-center gap-3 rounded-2xl border px-4 py-3.5 text-sm font-medium shadow-xl transition-all duration-300 ${styles[type] || styles.info}`;
+      el.innerHTML = `<i class="fa-solid ${icons[type] || icons.info}"></i><span class="flex-1">${esc(message)}</span>`;
+      container.appendChild(el);
+      setTimeout(() => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(8px)';
+        setTimeout(() => el.remove(), 300);
+      }, 3600);
+    }
+
+    function openConfirmModal(title, message, onConfirm, confirmBtnText = 'Confirmar') {
+      const modal = document.getElementById('confirmModal');
+      document.getElementById('confirmTitle').textContent = title;
+      document.getElementById('confirmMessage').textContent = message;
+      const okBtn = document.getElementById('confirmOkBtn');
+      const cancelBtn = document.getElementById('confirmCancelBtn');
+      okBtn.textContent = confirmBtnText;
+
+      const cleanup = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        okBtn.onclick = null;
+        cancelBtn.onclick = null;
+      };
+
+      cancelBtn.onclick = cleanup;
+      okBtn.onclick = () => {
+        cleanup();
+        onConfirm();
+      };
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function downloadEventICS(eventId) {
+      const ev = state.events.find(e => e.id === eventId);
+      if (!ev) return;
+
+      const parts = String(ev.date || '12/03/2026').split('/');
+      const dd = (parts[0] || '01').padStart(2, '0');
+      const mm = (parts[1] || '01').padStart(2, '0');
+      const yyyy = parts[2] || '2026';
+
+      const timeParts = String(ev.time || '09:00').split(':');
+      const hh = (timeParts[0] || '09').padStart(2, '0');
+      const min = (timeParts[1] || '00').padStart(2, '0');
+      const endHh = String(Math.min(23, Number(hh) + 2)).padStart(2, '0');
+
+      const dtStart = `${yyyy}${mm}${dd}T${hh}${min}00`;
+      const dtEnd = `${yyyy}${mm}${dd}T${endHh}${min}00`;
+      const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+      const clean = (t) => String(t || '').replace(/\r?\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
+
+      const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Conecta IF//IF Goiano Campus Campos Belos//PT-BR',
+        'CALSCALE:GREGORIAN',
+        'BEGIN:VEVENT',
+        `UID:${ev.id}@conectaif.ifgoiano.edu.br`,
+        `DTSTAMP:${now}`,
+        `DTSTART:${dtStart}`,
+        `DTEND:${dtEnd}`,
+        `SUMMARY:${clean(ev.title)}`,
+        `DESCRIPTION:${clean(ev.description)}`,
+        `LOCATION:${clean(ev.location)} — IF Goiano Campus Campos Belos`,
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const slug = ev.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').slice(0, 40);
+      a.href = url;
+      a.download = `conecta-if-${slug}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      showToast('Arquivo .ics gerado! Abra-o para salvar o evento na sua agenda.');
+    }
+
+    const VALID_ROUTES = ['inicio', 'projetos', 'mural', 'agenda', 'oportunidades', 'sobre', 'entrar', 'publicar', 'meus-envios', 'moderacao'];
+
+    function navigate(route, options = {}) {
+      const target = VALID_ROUTES.includes(route) ? route : 'inicio';
+      currentRoute = target;
+      if (window.location.hash !== '#' + target) {
+        history.pushState(null, '', '#' + target);
+      }
+      renderHeaderAuth();
+      updateActiveNav();
+      renderView();
+      if (!options.keepScroll) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function updateActiveNav() {
+      document.querySelectorAll('.nav-desktop-link').forEach(link => {
+        const isActive = link.dataset.route === currentRoute;
+        link.classList.toggle('bg-brand-50', isActive);
+        link.classList.toggle('text-brand-900', isActive);
+        link.classList.toggle('text-slate-600', !isActive);
+      });
+    }
+
+    function renderHeaderAuth() {
+      const desktopBox = document.getElementById('desktopAuthContainer');
+      const mobileBanner = document.getElementById('mobileUserBanner');
+      const mobileAuthLink = document.getElementById('mobileAuthLink');
+
+      if (state.currentUser) {
+        const firstName = state.currentUser.name.split(' ')[0];
+        desktopBox.innerHTML = `
+          <div class="relative">
+            <button type="button" id="userMenuBtn" onclick="toggleUserDropdown(event)" class="inline-flex h-10 items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3.5 text-brand-900 transition-colors hover:bg-brand-100">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-900 text-[0.65rem] font-bold text-white">${esc(firstName.charAt(0).toUpperCase())}</span>
+              <span class="max-w-[110px] truncate text-xs font-bold">${esc(firstName)}</span>
+              <i class="fa-solid fa-chevron-down text-[0.6rem] opacity-70"></i>
+            </button>
+            <div id="userDropdown" class="hidden absolute right-0 mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+              <div class="border-b border-slate-100 px-3 py-2.5">
+                <p class="truncate text-sm font-bold text-slate-900">${esc(state.currentUser.name)}</p>
+                <p class="truncate text-xs text-slate-500">${esc(state.currentUser.email)}</p>
+                <span class="mt-1.5 inline-block rounded-full bg-brand-100 px-2.5 py-0.5 text-[0.65rem] font-bold text-brand-900">${esc(state.currentUser.role)}</span>
+              </div>
+              <div class="mt-1 grid gap-0.5">
+                <button type="button" onclick="closeUserDropdown(); navigate('meus-envios')" class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-900">
+                  <i class="fa-solid fa-inbox w-4 text-brand-800"></i> Meus envios
+                </button>
+                <button type="button" onclick="closeUserDropdown(); navigate('publicar')" class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-900">
+                  <i class="fa-solid fa-pen-to-square w-4 text-brand-800"></i> Nova publicação
+                </button>
+                <button type="button" onclick="closeUserDropdown(); navigate('moderacao')" class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-900">
+                  <i class="fa-solid fa-shield-halved w-4 text-amber-700"></i> Área do moderador
+                </button>
+                <button type="button" onclick="logoutAcademic()" class="mt-1 flex w-full items-center gap-2.5 rounded-xl border-t border-slate-100 px-3 py-2 text-left text-sm font-semibold text-red-600 hover:bg-red-50">
+                  <i class="fa-solid fa-right-from-bracket w-4"></i> Sair da conta
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        mobileBanner.innerHTML = `
+          <div class="flex items-center justify-between gap-2 rounded-2xl border border-brand-200 bg-brand-50 p-3.5">
+            <div class="min-w-0">
+              <p class="truncate text-sm font-bold text-brand-950">${esc(state.currentUser.name)}</p>
+              <p class="truncate text-xs text-brand-800">${esc(state.currentUser.email)}</p>
+            </div>
+            <button type="button" onclick="logoutAcademic(); closeDrawer();" class="shrink-0 rounded-xl bg-white px-3 py-1.5 text-xs font-bold text-red-600 shadow-sm hover:bg-red-50">Sair</button>
+          </div>
+        `;
+        mobileAuthLink.classList.add('hidden');
+      } else {
+        desktopBox.innerHTML = `
+          <a href="#entrar" onclick="navigate('entrar'); return false;" class="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-4 text-brand-900 transition-all hover:border-brand-300 hover:bg-brand-50" aria-label="Entrar com e-mail acadêmico">
+            <i class="fa-solid fa-user text-xs"></i>
+            <span class="text-xs font-bold">Entrar</span>
+          </a>
+        `;
+        mobileBanner.innerHTML = '';
+        mobileAuthLink.classList.remove('hidden');
+      }
+    }
+
+    function toggleUserDropdown(e) {
+      e.stopPropagation();
+      const dd = document.getElementById('userDropdown');
+      if (dd) dd.classList.toggle('hidden');
+    }
+
+    function closeUserDropdown() {
+      const dd = document.getElementById('userDropdown');
+      if (dd) dd.classList.add('hidden');
+    }
+
+    document.addEventListener('click', closeUserDropdown);
+
+    function logoutAcademic() {
+      state.currentUser = null;
+      saveState();
+      renderHeaderAuth();
+      showToast('Sessão acadêmica encerrada.', 'info');
+      if (currentRoute === 'meus-envios' || currentRoute === 'publicar') {
+        renderView();
+      }
+    }
+
+    const drawerEl = document.getElementById('mobileDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const navOpenBtn = document.getElementById('navOpenButton');
+    const navCloseBtn = document.getElementById('navCloseButton');
+
+    function openDrawer() {
+      drawerBackdrop.classList.remove('hidden');
+      requestAnimationFrame(() => drawerEl.classList.remove('translate-x-full'));
+      drawerEl.setAttribute('aria-hidden', 'false');
+      navOpenBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawerEl.classList.add('translate-x-full');
+      setTimeout(() => drawerBackdrop.classList.add('hidden'), 260);
+      drawerEl.setAttribute('aria-hidden', 'true');
+      navOpenBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    navOpenBtn.addEventListener('click', openDrawer);
+    navCloseBtn.addEventListener('click', closeDrawer);
+    drawerBackdrop.addEventListener('click', closeDrawer);
+
+    function openDetailModal(html) {
+      const modal = document.getElementById('detailModal');
+      document.getElementById('detailModalContent').innerHTML = html;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetailModal() {
+      const modal = document.getElementById('detailModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('detailModal').addEventListener('click', (e) => {
+      if (e.target.id === 'detailModal') closeDetailModal();
+    });
+
+    function showProjectDetail(id) {
+      const p = state.projects.find(item => item.id === id);
+      if (!p) return;
+      openDetailModal(`
+        <div class="relative">
+          <img src="${esc(p.image || FALLBACK_CARD)}" onerror="this.onerror=null;this.src='${FALLBACK_CARD}';" alt="${esc(p.title)}" class="h-64 w-full object-cover sm:h-72" />
+          <button type="button" onclick="closeDetailModal()" class="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/70 text-white backdrop-blur-sm hover:bg-slate-900" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="p-6 sm:p-8">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="rounded-full border px-3 py-1 text-xs font-bold ${getAxisBadgeClass(p.axis)}">${esc(p.axis)}</span>
+            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">${esc(p.modality)}</span>
+          </div>
+          <h3 class="mt-4 font-heading text-2xl font-extrabold leading-snug text-slate-900">${esc(p.title)}</h3>
+          <p class="mt-4 text-sm leading-7 text-slate-600">${esc(p.description)}</p>
+          <div class="mt-6 grid gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-user-tie mt-1 text-brand-800"></i>
+              <div><span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Responsável / Coordenação</span><span class="font-medium text-slate-800">${esc(p.coordinator || 'Campus Campos Belos')}</span></div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-handshake-angle mt-1 text-brand-800"></i>
+              <div><span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Como participar</span><span class="text-slate-700">${esc(p.howToJoin || 'Procure a coordenação do projeto ou acompanhe as chamadas no mural de avisos.')}</span></div>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap justify-end gap-3">
+            <button type="button" onclick="closeDetailModal(); navigate('oportunidades');" class="rounded-xl border border-brand-200 bg-brand-50 px-4 py-2.5 text-sm font-semibold text-brand-900 hover:bg-brand-100">Ver bolsas e vagas</button>
+            <button type="button" onclick="closeDetailModal()" class="rounded-xl bg-brand-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800">Fechar</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function showNoticeDetail(id) {
+      const n = state.notices.find(item => item.id === id);
+      if (!n) return;
+      openDetailModal(`
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-900">${esc(n.type)}</span>
+              <span class="text-xs font-semibold text-slate-500">Publicado em ${esc(n.publishedAt)}</span>
+            </div>
+            <button type="button" onclick="closeDetailModal()" class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h3 class="mt-4 font-heading text-2xl font-extrabold text-slate-900">${esc(n.title)}</h3>
+          <p class="mt-4 text-sm leading-7 text-slate-600">${esc(n.description)}</p>
+          <div class="mt-6 grid gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm sm:grid-cols-2">
+            <div><span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Prazo / Data limite</span><span class="mt-1 inline-flex items-center gap-1.5 font-bold text-brand-900"><i class="fa-regular fa-clock"></i> ${esc(n.deadline || 'Não informado')}</span></div>
+            <div><span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Origem / Setor</span><span class="mt-1 block font-medium text-slate-800">${esc(n.author || 'IF Goiano – Campus Campos Belos')}</span></div>
+          </div>
+          <div class="mt-6 flex justify-end">
+            <button type="button" onclick="closeDetailModal()" class="rounded-xl bg-brand-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800">Fechar</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function showEventDetail(id) {
+      const ev = state.events.find(item => item.id === id);
+      if (!ev) return;
+      const chip = splitDateChip(ev.date);
+      openDetailModal(`
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <span class="inline-flex min-w-[66px] flex-col items-center justify-center rounded-2xl bg-brand-900 px-3 py-2 text-white">
+                <strong class="font-heading text-xl font-extrabold leading-none">${esc(chip.day)}</strong>
+                <span class="mt-1 text-[0.7rem] text-brand-300">${esc(chip.monthYear)}</span>
+              </span>
+              <div>
+                <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-900">${esc(ev.category)}</span>
+                <p class="mt-1.5 text-xs font-semibold text-slate-600"><i class="fa-regular fa-clock mr-1 text-brand-800"></i> ${esc(ev.time)}</p>
+              </div>
+            </div>
+            <button type="button" onclick="closeDetailModal()" class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h3 class="mt-5 font-heading text-2xl font-extrabold text-slate-900">${esc(ev.title)}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-600">${esc(ev.description)}</p>
+          <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm">
+            <span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Local do encontro</span>
+            <p class="mt-1 font-bold text-brand-900"><i class="fa-solid fa-location-dot mr-1.5"></i> ${esc(ev.location)}</p>
+          </div>
+          <div class="mt-6 flex flex-wrap justify-end gap-3">
+            <button type="button" onclick="downloadEventICS('${esc(ev.id)}')" class="inline-flex items-center gap-2 rounded-xl border border-brand-200 bg-brand-50 px-4 py-2.5 text-sm font-semibold text-brand-900 hover:bg-brand-100">
+              <i class="fa-regular fa-calendar-plus"></i> Salvar na agenda (.ics)
+            </button>
+            <button type="button" onclick="closeDetailModal()" class="rounded-xl bg-brand-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800">Fechar</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function showOpportunityDetail(id) {
+      const o = state.opportunities.find(item => item.id === id);
+      if (!o) return;
+      openDetailModal(`
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-900">${esc(o.type)}</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Prazo: até ${esc(o.deadline)}</span>
+            </div>
+            <button type="button" onclick="closeDetailModal()" class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <h3 class="mt-4 font-heading text-2xl font-extrabold text-slate-900">${esc(o.title)}</h3>
+          <p class="mt-4 text-sm leading-7 text-slate-600">${esc(o.description)}</p>
+          <div class="mt-6 grid gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm">
+            <div><span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Benefício / Carga horária</span><p class="mt-1 font-bold text-brand-900"><i class="fa-solid fa-gift mr-1.5"></i> ${esc(o.benefit)}</p></div>
+            <div><span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Requisitos e orientações</span><p class="mt-1 text-slate-700">${esc(o.requirements || 'Consulte o edital na coordenação do curso ou setor responsável.')}</p></div>
+          </div>
+          <div class="mt-6 flex justify-end">
+            <button type="button" onclick="closeDetailModal()" class="rounded-xl bg-brand-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-800">Fechar</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function renderProjectCard(p) {
+      return `
+        <article class="group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+          <div class="aspect-[4/3] overflow-hidden bg-slate-100">
+            <img src="${esc(p.image || FALLBACK_CARD)}" onerror="this.onerror=null;this.src='${FALLBACK_CARD}';" alt="Projeto ${esc(p.title)}" loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-full border px-3 py-0.5 text-xs font-bold ${getAxisBadgeClass(p.axis)}">${esc(p.axis)}</span>
+              <span class="rounded-full bg-slate-100 px-3 py-0.5 text-xs font-semibold text-slate-600">${esc(p.modality)}</span>
+            </div>
+            <h3 class="mt-4 font-heading text-lg font-bold leading-snug text-slate-900">${esc(p.title)}</h3>
+            <p class="mt-3 flex-1 text-sm leading-6 text-slate-600 line-clamp-4">${esc(p.description)}</p>
+            <button type="button" onclick="showProjectDetail('${esc(p.id)}')" class="mt-5 inline-flex items-center gap-2 self-start text-sm font-bold text-brand-900 transition-colors hover:text-brand-700">
+              Conhecer o projeto <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+            </button>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderNoticeCard(n) {
+      return `
+        <article onclick="showNoticeDetail('${esc(n.id)}')" class="cursor-pointer rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="rounded-full bg-brand-100 px-3 py-0.5 text-xs font-bold text-brand-900">${esc(n.type)}</span>
+            <span class="text-[0.7rem] font-bold uppercase tracking-wider text-slate-400">${esc(n.publishedAt)}</span>
+          </div>
+          <h3 class="mt-3 font-heading text-lg font-bold leading-snug text-slate-900">${esc(n.title)}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600 line-clamp-3">${esc(n.description)}</p>
+          <div class="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3">
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-900"><i class="fa-regular fa-clock mr-1"></i> Prazo: ${esc(n.deadline || 'Contínuo')}</p>
+            <span class="text-xs font-semibold text-brand-800">Ler detalhes <i class="fa-solid fa-chevron-right ml-0.5 text-[0.65rem]"></i></span>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderEventCard(ev, showIcsBtn = true) {
+      const chip = splitDateChip(ev.date);
+      return `
+        <article class="flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
+          <div class="flex items-center justify-between gap-4 border-b border-slate-100 pb-4">
+            <span class="inline-flex min-w-[66px] flex-col items-center justify-center rounded-2xl bg-brand-900 px-3 py-2 text-white shadow-sm">
+              <strong class="font-heading text-xl font-extrabold leading-none">${esc(chip.day)}</strong>
+              <span class="mt-1 text-[0.7rem] font-semibold text-brand-300">${esc(chip.monthYear)}</span>
+            </span>
+            <div class="text-right">
+              <span class="inline-block rounded-full bg-brand-100 px-3 py-0.5 text-xs font-bold text-brand-900">${esc(ev.category)}</span>
+              <p class="mt-1.5 text-xs font-semibold text-slate-500"><i class="fa-regular fa-clock mr-1 text-brand-800"></i> ${esc(ev.time)}</p>
+            </div>
+          </div>
+          <h3 onclick="showEventDetail('${esc(ev.id)}')" class="mt-4 cursor-pointer font-heading text-lg font-bold leading-snug text-slate-900 hover:text-brand-800">${esc(ev.title)}</h3>
+          <p class="mt-2 flex-1 text-sm leading-6 text-slate-600 line-clamp-3">${esc(ev.description)}</p>
+          <p class="mt-4 text-xs font-bold uppercase tracking-wider text-brand-900"><i class="fa-solid fa-location-dot mr-1.5"></i> ${esc(ev.location)}</p>
+          ${showIcsBtn ? `
+            <div class="mt-4 flex items-center justify-between gap-2 border-t border-slate-100 pt-4">
+              <button type="button" onclick="showEventDetail('${esc(ev.id)}')" class="text-xs font-bold text-slate-600 hover:text-brand-900">Ver detalhes</button>
+              <button type="button" onclick="downloadEventICS('${esc(ev.id)}')" class="inline-flex items-center gap-1.5 rounded-xl bg-brand-50 px-3 py-2 text-xs font-bold text-brand-900 transition-colors hover:bg-brand-100">
+                <i class="fa-regular fa-calendar-plus"></i> Salvar na agenda (.ics)
+              </button>
+            </div>
+          ` : ''}
+        </article>
+      `;
+    }
+
+    function renderOpportunityCard(o) {
+      return `
+        <article onclick="showOpportunityDetail('${esc(o.id)}')" class="flex h-full cursor-pointer flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="rounded-full bg-brand-100 px-3 py-0.5 text-xs font-bold text-brand-900">${esc(o.type)}</span>
+            <span class="rounded-full bg-slate-100 px-3 py-0.5 text-xs font-semibold text-slate-600">até ${esc(o.deadline)}</span>
+          </div>
+          <h3 class="mt-4 font-heading text-lg font-bold leading-snug text-slate-900">${esc(o.title)}</h3>
+          <p class="mt-3 flex-1 text-sm leading-6 text-slate-600 line-clamp-3">${esc(o.description)}</p>
+          <div class="mt-5 border-t border-slate-100 pt-4">
+            <p class="text-xs font-bold uppercase tracking-wider text-brand-900"><i class="fa-solid fa-gift mr-1.5"></i> ${esc(o.benefit)}</p>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderView(animate = true) {
+      const root = document.getElementById('appRoot');
+      let html = '';
+
+      switch (currentRoute) {
+        case 'inicio': html = viewHome(); break;
+        case 'projetos': html = viewProjects(); break;
+        case 'mural': html = viewMural(); break;
+        case 'agenda': html = viewAgenda(); break;
+        case 'oportunidades': html = viewOpportunities(); break;
+        case 'sobre': html = viewAbout(); break;
+        case 'entrar': html = viewAuth(); break;
+        case 'publicar': html = viewPublish(); break;
+        case 'meus-envios': html = viewMySubmissions(); break;
+        case 'moderacao': html = viewModeration(); break;
+        default: html = viewHome();
+      }
+
+      root.innerHTML = animate ? `<div class="view-enter">${html}</div>` : `<div>${html}</div>`;
+      bindPageEvents();
+    }
+
+    function viewHome() {
+      const featuredProjects = state.projects.slice(0, 3);
+      const featuredNotices = state.notices.slice(0, 3);
+      const featuredEvents = state.events.slice(0, 3);
+      const featuredOpps = state.opportunities.slice(0, 3);
+
+      return `
+        <section class="relative overflow-hidden bg-brand-950 text-white">
+          <img src="./img/hero-campus.avif" onerror="this.onerror=null;this.src='${FALLBACK_HERO}';" alt="Prédio principal do Instituto Federal Goiano – Campus Campos Belos" class="absolute inset-0 h-full w-full object-cover opacity-35" />
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-950/95 via-brand-900/85 to-slate-950/80"></div>
+
+          <div class="relative mx-auto max-w-7xl px-5 pb-16 pt-16 sm:px-8 lg:pb-24 lg:pt-24">
+            <div class="max-w-3xl">
+              <p class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-white/95 backdrop-blur-md">
+                <i class="fa-solid fa-graduation-cap text-brand-300"></i> IF Goiano · Campus Campos Belos
+              </p>
+              <h1 class="mt-6 font-heading text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Tudo o que acontece no campus, <span class="text-brand-300">em um só lugar.</span>
+              </h1>
+              <p class="mt-6 max-w-2xl text-base leading-8 text-white/85 sm:text-lg">
+                O Conecta IF reúne projetos de ensino, pesquisa e extensão, avisos oficiais, eventos e oportunidades de bolsas — conectando estudantes, servidores e responsáveis por projetos.
+              </p>
+              <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a href="#projetos" onclick="navigate('projetos'); return false;" class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand-950 shadow-md transition-all hover:bg-brand-100">
+                  Explorar projetos <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#mural" onclick="navigate('mural'); return false;" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white/20">
+                  Ver mural de avisos
+                </a>
+              </div>
+            </div>
+
+            <dl class="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+              <div onclick="navigate('projetos')" class="cursor-pointer rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md transition-colors hover:bg-white/15">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-white/75">Projetos ativos</dt>
+                <dd class="mt-1 font-heading text-3xl font-extrabold text-white sm:text-4xl">${state.projects.length}</dd>
+              </div>
+              <div onclick="navigate('mural')" class="cursor-pointer rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md transition-colors hover:bg-white/15">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-white/75">Avisos publicados</dt>
+                <dd class="mt-1 font-heading text-3xl font-extrabold text-white sm:text-4xl">${state.notices.length}</dd>
+              </div>
+              <div onclick="navigate('agenda')" class="cursor-pointer rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md transition-colors hover:bg-white/15">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-white/75">Eventos na agenda</dt>
+                <dd class="mt-1 font-heading text-3xl font-extrabold text-white sm:text-4xl">${state.events.length}</dd>
+              </div>
+              <div onclick="navigate('oportunidades')" class="cursor-pointer rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md transition-colors hover:bg-white/15">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-white/75">Oportunidades abertas</dt>
+                <dd class="mt-1 font-heading text-3xl font-extrabold text-white sm:text-4xl">${state.opportunities.length}</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="px-5 py-16 sm:px-8 lg:py-20">
+          <div class="mx-auto max-w-7xl">
+            <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div class="max-w-2xl">
+                <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-700">Ensino · Pesquisa · Extensão</p>
+                <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Projetos que movem o campus</h2>
+                <p class="mt-3 text-base leading-7 text-slate-600">Iniciativas coordenadas por servidores e estudantes do Campus Campos Belos, com objetivos claros, responsáveis identificados e formas de participação abertas à comunidade acadêmica.</p>
+              </div>
+              <a href="#projetos" onclick="navigate('projetos'); return false;" class="inline-flex items-center gap-2 self-start rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-900 transition-colors hover:bg-brand-50 md:self-auto">
+                Ver todos os projetos <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+            <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              ${featuredProjects.map(renderProjectCard).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section class="border-y border-slate-200/80 bg-white px-5 py-16 sm:px-8 lg:py-20">
+          <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-700">Mural de avisos</p>
+              <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Comunicados oficiais, sem ruído.</h2>
+              <p class="mt-4 text-base leading-7 text-slate-600">Reuniões, comunicados, inscrições e atividades organizadas em um só lugar — com prazo, responsável e origem de cada publicação.</p>
+              <a href="#mural" onclick="navigate('mural'); return false;" class="mt-7 inline-flex items-center gap-2 rounded-full border border-brand-900/20 bg-brand-50 px-6 py-3 text-sm font-bold text-brand-900 transition-colors hover:bg-brand-100">
+                Abrir o mural completo <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+            <div class="grid gap-4">
+              ${featuredNotices.map(renderNoticeCard).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section class="px-5 py-16 sm:px-8 lg:py-20">
+          <div class="mx-auto max-w-7xl">
+            <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div class="max-w-2xl">
+                <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-700">Agenda do campus</p>
+                <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Os próximos encontros já têm data</h2>
+                <p class="mt-3 text-base leading-7 text-slate-600">Palestras, oficinas, competições e reuniões em ordem cronológica — com local, horário e a opção de salvar o evento na sua agenda.</p>
+              </div>
+              <a href="#agenda" onclick="navigate('agenda'); return false;" class="inline-flex items-center gap-2 self-start rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-900 transition-colors hover:bg-brand-50 md:self-auto">
+                Ver agenda completa <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+            <div class="mt-10 grid gap-6 lg:grid-cols-3">
+              ${featuredEvents.map(ev => renderEventCard(ev, true)).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section class="border-t border-slate-200/80 bg-white px-5 py-16 sm:px-8 lg:py-20">
+          <div class="mx-auto max-w-7xl">
+            <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div class="max-w-2xl">
+                <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-700">Oportunidades</p>
+                <h2 class="mt-3 font-heading text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Bolsas, seleções e voluntariado</h2>
+                <p class="mt-3 text-base leading-7 text-slate-600">Vagas abertas para estudantes do campus e para a comunidade, com requisitos, benefícios e prazos transparentes.</p>
+              </div>
+              <a href="#oportunidades" onclick="navigate('oportunidades'); return false;" class="inline-flex items-center gap-2 self-start rounded-full border border-brand-900/20 bg-brand-50 px-5 py-2.5 text-sm font-bold text-brand-900 transition-colors hover:bg-brand-100 md:self-auto">
+                Ver todas as oportunidades <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+            </div>
+            <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              ${featuredOpps.map(renderOpportunityCard).join('')}
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-gradient-to-r from-brand-950 via-brand-900 to-brand-800 px-5 py-16 text-white sm:px-8">
+          <div class="mx-auto flex max-w-6xl flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div class="max-w-2xl">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-brand-300">Participe da plataforma</p>
+              <h2 class="mt-3 font-heading text-3xl font-extrabold leading-tight sm:text-4xl">Tem um projeto, aviso ou evento para divulgar?</h2>
+              <p class="mt-3 text-base leading-7 text-white/80">Envie sua publicação em poucos minutos com seu e-mail acadêmico. A equipe de moderação do campus revisa o conteúdo e libera a divulgação no site.</p>
+            </div>
+            <div class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <a href="#publicar" onclick="navigate('publicar'); return false;" class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-brand-950 shadow-md transition-colors hover:bg-brand-100">
+                Enviar publicação <i class="fa-solid fa-pen-to-square text-xs"></i>
+              </a>
+              <a href="#moderacao" onclick="navigate('moderacao'); return false;" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-white/20">
+                <i class="fa-solid fa-shield-halved text-xs text-brand-300"></i> Área do moderador
+              </a>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function pageBanner(kicker, title, subtitle) {
+      return `
+        <section class="border-b border-brand-900/10 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 px-5 py-12 text-white sm:px-8 sm:py-16">
+          <div class="mx-auto max-w-7xl">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-300">${esc(kicker)}</p>
+            <h1 class="mt-3 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">${esc(title)}</h1>
+            <p class="mt-3 max-w-2xl text-sm leading-7 text-white/80 sm:text-base">${esc(subtitle)}</p>
+          </div>
+        </section>
+      `;
+    }
+
+    function viewProjects() {
+      const axes = ['Todos', 'Ensino', 'Pesquisa', 'Extensão'];
+      const q = filters.projetos.q.trim().toLowerCase();
+      const axis = filters.projetos.axis;
+
+      const list = state.projects.filter(p => {
+        const matchAxis = axis === 'Todos' || p.axis === axis;
+        const matchQ = !q || p.title.toLowerCase().includes(q) || p.description.toLowerCase().includes(q) || (p.modality || '').toLowerCase().includes(q);
+        return matchAxis && matchQ;
+      });
+
+      return `
+        ${pageBanner('Ensino · Pesquisa · Extensão', 'Projetos do Campus', 'Conheça as iniciativas coordenadas por docentes, técnicos e estudantes do IF Goiano – Campus Campos Belos.')}
+        <section class="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+          <div class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center md:justify-between">
+            <div class="relative flex-1">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400"></i>
+              <input id="searchProjetos" type="search" value="${esc(filters.projetos.q)}" placeholder="Buscar projetos por título, tema ou modalidade..." class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-2.5 pl-11 pr-4 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+            </div>
+            <div class="flex flex-wrap gap-2">
+              ${axes.map(a => `
+                <button type="button" onclick="setFilter('projetos','axis','${a}')" class="rounded-full px-4 py-2 text-xs font-bold transition-colors ${axis === a ? 'bg-brand-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-brand-50 hover:text-brand-900'}">${a}</button>
+              `).join('')}
+            </div>
+          </div>
+
+          <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">${list.length} projeto(s) encontrado(s)</p>
+
+          ${list.length ? `
+            <div class="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              ${list.map(renderProjectCard).join('')}
+            </div>
+          ` : `
+            <div class="mt-8 rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
+              <i class="fa-solid fa-folder-open text-3xl text-slate-300"></i>
+              <p class="mt-3 font-heading text-lg font-bold text-slate-700">Nenhum projeto encontrado</p>
+              <p class="mt-1 text-sm text-slate-500">Tente ajustar os termos de busca ou selecionar outro eixo temático.</p>
+            </div>
+          `}
+        </section>
+      `;
+    }
+
+    function viewMural() {
+      const types = ['Todos', 'Comunicado', 'Inscrição', 'Reunião'];
+      const q = filters.mural.q.trim().toLowerCase();
+      const type = filters.mural.type;
+
+      const list = state.notices.filter(n => {
+        const matchType = type === 'Todos' || n.type === type;
+        const matchQ = !q || n.title.toLowerCase().includes(q) || n.description.toLowerCase().includes(q);
+        return matchType && matchQ;
+      });
+
+      return `
+        ${pageBanner('Comunicação Oficial', 'Mural de Avisos', 'Comunicados, editais de inscrição e convocações de reuniões com prazos e responsáveis identificados.')}
+        <section class="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+          <div class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center md:justify-between">
+            <div class="relative flex-1">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400"></i>
+              <input id="searchMural" type="search" value="${esc(filters.mural.q)}" placeholder="Pesquisar comunicados, monitorias, reuniões..." class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-2.5 pl-11 pr-4 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+            </div>
+            <div class="flex flex-wrap gap-2">
+              ${types.map(t => `
+                <button type="button" onclick="setFilter('mural','type','${t}')" class="rounded-full px-4 py-2 text-xs font-bold transition-colors ${type === t ? 'bg-brand-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-brand-50 hover:text-brand-900'}">${t}</button>
+              `).join('')}
+            </div>
+          </div>
+
+          <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">${list.length} aviso(s) encontrado(s)</p>
+
+          ${list.length ? `
+            <div class="mt-5 grid gap-5 md:grid-cols-2">
+              ${list.map(renderNoticeCard).join('')}
+            </div>
+          ` : `
+            <div class="mt-8 rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
+              <i class="fa-solid fa-bullhorn text-3xl text-slate-300"></i>
+              <p class="mt-3 font-heading text-lg font-bold text-slate-700">Nenhum aviso encontrado</p>
+              <p class="mt-1 text-sm text-slate-500">Altere o filtro ou limpe a busca para visualizar todos os comunicados.</p>
+            </div>
+          `}
+        </section>
+      `;
+    }
+
+    function viewAgenda() {
+      const categories = ['Todos', 'Palestra', 'Oficina', 'Competição', 'Reunião'];
+      const q = filters.agenda.q.trim().toLowerCase();
+      const cat = filters.agenda.category;
+
+      const list = state.events.filter(ev => {
+        const matchCat = cat === 'Todos' || ev.category === cat;
+        const matchQ = !q || ev.title.toLowerCase().includes(q) || ev.description.toLowerCase().includes(q) || ev.location.toLowerCase().includes(q);
+        return matchCat && matchQ;
+      });
+
+      return `
+        ${pageBanner('Calendário Acadêmico e Cultural', 'Agenda do Campus', 'Palestras, oficinas práticas, competições e reuniões. Clique em "Salvar na agenda (.ics)" para importar no Google Agenda, Outlook ou Apple Calendar.')}
+        <section class="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+          <div class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center md:justify-between">
+            <div class="relative flex-1">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400"></i>
+              <input id="searchAgenda" type="search" value="${esc(filters.agenda.q)}" placeholder="Buscar eventos por nome, tema ou local..." class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-2.5 pl-11 pr-4 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+            </div>
+            <div class="flex flex-wrap gap-2">
+              ${categories.map(c => `
+                <button type="button" onclick="setFilter('agenda','category','${c}')" class="rounded-full px-4 py-2 text-xs font-bold transition-colors ${cat === c ? 'bg-brand-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-brand-50 hover:text-brand-900'}">${c}</button>
+              `).join('')}
+            </div>
+          </div>
+
+          <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">${list.length} evento(s) agendado(s)</p>
+
+          ${list.length ? `
+            <div class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              ${list.map(ev => renderEventCard(ev, true)).join('')}
+            </div>
+          ` : `
+            <div class="mt-8 rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
+              <i class="fa-solid fa-calendar-xmark text-3xl text-slate-300"></i>
+              <p class="mt-3 font-heading text-lg font-bold text-slate-700">Nenhum evento encontrado</p>
+              <p class="mt-1 text-sm text-slate-500">Tente outro filtro ou termo de pesquisa.</p>
+            </div>
+          `}
+        </section>
+      `;
+    }
+
+    function viewOpportunities() {
+      const types = ['Todos', 'Bolsa', 'Estágio', 'Voluntariado', 'Seleção'];
+      const q = filters.oportunidades.q.trim().toLowerCase();
+      const type = filters.oportunidades.type;
+
+      const list = state.opportunities.filter(o => {
+        const matchType = type === 'Todos' || o.type === type;
+        const matchQ = !q || o.title.toLowerCase().includes(q) || o.description.toLowerCase().includes(q) || o.benefit.toLowerCase().includes(q);
+        return matchType && matchQ;
+      });
+
+      return `
+        ${pageBanner('Formação e Permanência', 'Oportunidades Abertas', 'Bolsas de iniciação científica, monitorias remuneradas e voluntárias, estágios e seleções para estudantes do Campus Campos Belos.')}
+        <section class="mx-auto max-w-7xl px-5 py-10 sm:px-8">
+          <div class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:flex-row md:items-center md:justify-between">
+            <div class="relative flex-1">
+              <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-sm text-slate-400"></i>
+              <input id="searchOportunidades" type="search" value="${esc(filters.oportunidades.q)}" placeholder="Buscar bolsas, monitorias, estágios..." class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-2.5 pl-11 pr-4 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+            </div>
+            <div class="flex flex-wrap gap-2">
+              ${types.map(t => `
+                <button type="button" onclick="setFilter('oportunidades','type','${t}')" class="rounded-full px-4 py-2 text-xs font-bold transition-colors ${type === t ? 'bg-brand-900 text-white' : 'bg-slate-100 text-slate-600 hover:bg-brand-50 hover:text-brand-900'}">${t}</button>
+              `).join('')}
+            </div>
+          </div>
+
+          <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">${list.length} oportunidade(s) encontrada(s)</p>
+
+          ${list.length ? `
+            <div class="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              ${list.map(renderOpportunityCard).join('')}
+            </div>
+          ` : `
+            <div class="mt-8 rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
+              <i class="fa-solid fa-lightbulb text-3xl text-slate-300"></i>
+              <p class="mt-3 font-heading text-lg font-bold text-slate-700">Nenhuma oportunidade encontrada</p>
+              <p class="mt-1 text-sm text-slate-500">Experimente limpar os filtros para visualizar todas as vagas abertas.</p>
+            </div>
+          `}
+        </section>
+      `;
+    }
+
+    function viewAbout() {
+      return `
+        ${pageBanner('Institucional', 'Sobre o Conecta IF', 'Uma iniciativa do Instituto Federal Goiano – Campus Campos Belos para centralizar a comunicação acadêmica com transparência e organização.')}
+        <section class="mx-auto max-w-7xl px-5 py-12 sm:px-8">
+          <div class="grid gap-8 lg:grid-cols-3">
+            <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm lg:col-span-2">
+              <h2 class="font-heading text-2xl font-extrabold text-slate-900">Por que o Conecta IF existe?</h2>
+              <p class="mt-4 text-sm leading-7 text-slate-600">
+                No dia a dia do campus, projetos de ensino, pesquisa e extensão, chamadas de bolsas e eventos acabam dispersos entre murais físicos, grupos de mensagens e redes sociais. O <strong>Conecta IF</strong> nasce como um ponto único de referência para que estudantes, servidores, famílias e a comunidade de Campos Belos acompanhem tudo o que o IF Goiano produz.
+              </p>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                Para garantir veracidade e qualidade das informações, apenas pessoas com <strong>e-mail acadêmico institucional</strong> (<code class="rounded bg-brand-50 px-1.5 py-0.5 text-xs font-bold text-brand-900">@ifgoiano.edu.br</code> ou <code class="rounded bg-brand-50 px-1.5 py-0.5 text-xs font-bold text-brand-900">@estudante.ifgoiano.edu.br</code>) podem submeter publicações, e todo envio passa pela revisão da equipe de moderação do campus.
+              </p>
+
+              <h3 class="mt-8 font-heading text-lg font-bold text-slate-900">Como funciona o fluxo de publicação</h3>
+              <div class="mt-4 grid gap-4 sm:grid-cols-3">
+                <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand-900 text-xs font-extrabold text-white">1</span>
+                  <h4 class="mt-3 font-heading text-sm font-bold text-slate-900">Acesso acadêmico</h4>
+                  <p class="mt-1 text-xs leading-5 text-slate-600">Estudantes e servidores entram exclusivamente com seu e-mail institucional do IF Goiano.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand-900 text-xs font-extrabold text-white">2</span>
+                  <h4 class="mt-3 font-heading text-sm font-bold text-slate-900">Envio estruturado</h4>
+                  <p class="mt-1 text-xs leading-5 text-slate-600">O autor preenche o formulário de projeto, aviso, evento ou oportunidade e acompanha em "Meus envios".</p>
+                </div>
+                <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-brand-900 text-xs font-extrabold text-white">3</span>
+                  <h4 class="mt-3 font-heading text-sm font-bold text-slate-900">Revisão e publicação</h4>
+                  <p class="mt-1 text-xs leading-5 text-slate-600">A equipe de moderação valida os dados e libera o conteúdo imediatamente no site.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-6">
+              <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+                <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-100 text-brand-900"><i class="fa-solid fa-building-columns"></i></span>
+                <h3 class="mt-4 font-heading text-lg font-bold text-slate-900">IF Goiano – Campus Campos Belos</h3>
+                <ul class="mt-4 space-y-3.5 text-sm text-slate-600">
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-location-dot mt-1 text-brand-800"></i>
+                    <span>GO-118, Km 3, Zona Rural<br />Campos Belos – GO</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-envelope mt-1 text-brand-800"></i>
+                    <a href="mailto:comunicacao.camposbelos@ifgoiano.edu.br" class="break-all font-medium text-brand-900 hover:underline">comunicacao.camposbelos@ifgoiano.edu.br</a>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <i class="fa-regular fa-clock mt-1 text-brand-800"></i>
+                    <span>Segunda a sexta, 8h às 18h</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="rounded-3xl bg-brand-900 p-7 text-white shadow-sm">
+                <h3 class="font-heading text-lg font-bold">Pronto para divulgar?</h3>
+                <p class="mt-2 text-sm leading-6 text-white/80">Use seu e-mail institucional para enviar avisos, eventos ou projetos do campus.</p>
+                <div class="mt-5 flex flex-col gap-2.5">
+                  <button type="button" onclick="navigate('publicar')" class="rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-brand-950 hover:bg-brand-100">Enviar publicação</button>
+                  <button type="button" onclick="navigate('moderacao')" class="rounded-xl border border-white/25 bg-white/10 px-4 py-2.5 text-sm font-bold text-white hover:bg-white/20">Área do moderador</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    let authMode = 'login';
+
+    function viewAuth() {
+      if (state.currentUser) {
+        return `
+          ${pageBanner('Conta Acadêmica', 'Você já está conectado', 'Sua sessão institucional do IF Goiano está ativa neste navegador.')}
+          <section class="mx-auto max-w-xl px-5 py-12 sm:px-8">
+            <div class="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+              <div class="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-100 text-2xl font-extrabold text-brand-900">
+                ${esc(state.currentUser.name.charAt(0).toUpperCase())}
+              </div>
+              <h2 class="mt-4 font-heading text-2xl font-extrabold text-slate-900">${esc(state.currentUser.name)}</h2>
+              <p class="mt-1 text-sm font-medium text-brand-800">${esc(state.currentUser.email)}</p>
+              <span class="mt-2 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">${esc(state.currentUser.role)}</span>
+              <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                <button type="button" onclick="navigate('publicar')" class="rounded-xl bg-brand-900 px-5 py-3 text-sm font-bold text-white hover:bg-brand-800">Enviar publicação</button>
+                <button type="button" onclick="navigate('meus-envios')" class="rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-bold text-slate-800 hover:bg-slate-100">Ver meus envios</button>
+              </div>
+              <button type="button" onclick="logoutAcademic()" class="mt-5 text-xs font-bold text-red-600 hover:underline">Encerrar sessão acadêmica</button>
+            </div>
+          </section>
+        `;
+      }
+
+      return `
+        ${pageBanner('Acesso Restrito à Comunidade Acadêmica', 'Entrar com E-mail Institucional', 'Apenas estudantes, servidores e coordenadores com e-mail oficial do IF Goiano podem publicar e acompanhar envios.')}
+        <section class="mx-auto max-w-lg px-5 py-12 sm:px-8">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+            <div class="grid grid-cols-2 rounded-2xl bg-slate-100 p-1">
+              <button type="button" onclick="setAuthMode('login')" class="rounded-xl py-2.5 text-sm font-bold transition-all ${authMode === 'login' ? 'bg-white text-brand-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">Entrar</button>
+              <button type="button" onclick="setAuthMode('register')" class="rounded-xl py-2.5 text-sm font-bold transition-all ${authMode === 'register' ? 'bg-white text-brand-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">Primeiro acesso</button>
+            </div>
+
+            <div class="mt-5 flex items-start gap-3 rounded-2xl border border-brand-200 bg-brand-50 p-3.5 text-xs leading-5 text-brand-900">
+              <i class="fa-solid fa-shield-halved mt-0.5 text-sm text-brand-800"></i>
+              <div>
+                <strong>Domínios aceitos:</strong> somente <code class="font-bold">@ifgoiano.edu.br</code> e <code class="font-bold">@estudante.ifgoiano.edu.br</code>. Contas pessoais (Gmail, Hotmail, Outlook, etc.) são bloqueadas automaticamente.
+              </div>
+            </div>
+
+            <div id="authErrorBox" class="mt-4 hidden items-start gap-2.5 rounded-2xl border border-red-200 bg-red-50 p-3.5 text-xs font-medium leading-5 text-red-800">
+              <i class="fa-solid fa-circle-exclamation mt-0.5 text-sm text-red-600"></i>
+              <span id="authErrorText"></span>
+            </div>
+
+            <form id="academicAuthForm" class="mt-5 space-y-4" novalidate>
+              ${authMode === 'register' ? `
+                <div>
+                  <label for="authName" class="block text-xs font-bold uppercase tracking-wider text-slate-600">Nome completo *</label>
+                  <input id="authName" type="text" required placeholder="Ex.: Ana Paula Ferreira" class="mt-1.5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+                </div>
+                <div>
+                  <label for="authRole" class="block text-xs font-bold uppercase tracking-wider text-slate-600">Vínculo institucional *</label>
+                  <select id="authRole" class="mt-1.5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100">
+                    <option value="Estudante">Estudante</option>
+                    <option value="Servidor">Servidor</option>
+                    <option value="Coordenador">Coordenador de Projeto</option>
+                  </select>
+                </div>
+              ` : ''}
+
+              <div>
+                <label for="authEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-600">E-mail acadêmico *</label>
+                <input id="authEmail" type="email" required placeholder="nome.sobrenome@estudante.ifgoiano.edu.br" class="mt-1.5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+              </div>
+
+              <div>
+                <label for="authPassword" class="block text-xs font-bold uppercase tracking-wider text-slate-600">Senha *</label>
+                <div class="relative mt-1.5">
+                  <input id="authPassword" type="password" required minlength="4" placeholder="Digite sua senha" class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3 pl-4 pr-11 text-sm outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+                  <button type="button" onclick="togglePasswordField('authPassword', this)" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700" aria-label="Mostrar senha">
+                    <i class="fa-regular fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <button type="submit" class="w-full rounded-2xl bg-brand-900 py-3.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-brand-800">
+                ${authMode === 'login' ? 'Entrar com e-mail acadêmico' : 'Criar conta acadêmica e entrar'}
+              </button>
+            </form>
+
+            ${authMode === 'login' ? `
+              <div class="mt-6 border-t border-slate-100 pt-5">
+                <p class="text-[0.7rem] font-bold uppercase tracking-wider text-slate-400">Teste rápido com conta acadêmica de exemplo</p>
+                <div class="mt-2.5 flex flex-wrap gap-2">
+                  <button type="button" onclick="quickFillAcademic('maria.silva@estudante.ifgoiano.edu.br','123456')" class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-brand-300 hover:bg-brand-50 hover:text-brand-900">
+                    <i class="fa-solid fa-user-graduate mr-1 text-brand-700"></i> Estudante (Maria)
+                  </button>
+                  <button type="button" onclick="quickFillAcademic('joao.souza@ifgoiano.edu.br','123456')" class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:border-brand-300 hover:bg-brand-50 hover:text-brand-900">
+                    <i class="fa-solid fa-chalkboard-user mr-1 text-brand-700"></i> Servidor (Prof. João)
+                  </button>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        </section>
+      `;
+    }
+
+    function setAuthMode(mode) {
+      authMode = mode;
+      renderView();
+    }
+
+    function quickFillAcademic(email, pass) {
+      const emailEl = document.getElementById('authEmail');
+      const passEl = document.getElementById('authPassword');
+      if (emailEl && passEl) {
+        emailEl.value = email;
+        passEl.value = pass;
+        hideAuthError();
+      }
+    }
+
+    function showAuthError(msg) {
+      const box = document.getElementById('authErrorBox');
+      const txt = document.getElementById('authErrorText');
+      if (box && txt) {
+        txt.textContent = msg;
+        box.classList.remove('hidden');
+        box.classList.add('flex');
+      }
+    }
+
+    function hideAuthError() {
+      const box = document.getElementById('authErrorBox');
+      if (box) {
+        box.classList.add('hidden');
+        box.classList.remove('flex');
+      }
+    }
+
+    function togglePasswordField(inputId, btn) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      const isPwd = input.type === 'password';
+      input.type = isPwd ? 'text' : 'password';
+      btn.innerHTML = isPwd ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+    }
+
+    let publishKind = 'notice';
+    let publishSuccessState = false;
+
+    function viewPublish() {
+      if (!state.currentUser) {
+        return `
+          ${pageBanner('Envio de Divulgação', 'Publicar no Conecta IF', 'Divulgue projetos, avisos oficiais, eventos ou oportunidades para toda a comunidade do Campus Campos Belos.')}
+          <section class="mx-auto max-w-xl px-5 py-14 sm:px-8">
+            <div class="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+              <span class="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-100 text-2xl text-brand-900">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <h2 class="mt-5 font-heading text-2xl font-extrabold text-slate-900">Login acadêmico obrigatório</h2>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Para manter a segurança e a confiabilidade das informações do campus, apenas usuários autenticados com e-mail <strong>@ifgoiano.edu.br</strong> ou <strong>@estudante.ifgoiano.edu.br</strong> podem enviar publicações.
+              </p>
+              <button type="button" onclick="postLoginRedirect='publicar'; navigate('entrar');" class="mt-7 inline-flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-bold text-white shadow-sm hover:bg-brand-800">
+                <i class="fa-solid fa-right-to-bracket"></i> Entrar com e-mail acadêmico
+              </button>
+            </div>
+          </section>
+        `;
+      }
+
+      if (publishSuccessState) {
+        publishSuccessState = false;
+        return `
+          ${pageBanner('Envio Registrado', 'Publicação enviada para moderação!', 'Recebemos a sua divulgação com sucesso.')}
+          <section class="mx-auto max-w-xl px-5 py-14 sm:px-8">
+            <div class="rounded-3xl border border-brand-200 bg-white p-8 text-center shadow-sm">
+              <span class="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-100 text-3xl text-brand-800">
+                <i class="fa-solid fa-circle-check"></i>
+              </span>
+              <h2 class="mt-5 font-heading text-2xl font-extrabold text-slate-900">Tudo certo, ${esc(state.currentUser.name.split(' ')[0])}!</h2>
+              <p class="mt-2 text-sm leading-6 text-slate-600">
+                Sua publicação foi salva com status <strong>Em revisão</strong>. Assim que a equipe de moderação aprovar, ela aparecerá automaticamente no site e o status será atualizado em <strong>Meus envios</strong>.
+              </p>
+              <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+                <button type="button" onclick="navigate('meus-envios')" class="rounded-full bg-brand-900 px-6 py-3 text-sm font-bold text-white hover:bg-brand-800">Acompanhar em Meus envios</button>
+                <button type="button" onclick="navigate('publicar')" class="rounded-full border border-slate-200 bg-slate-50 px-6 py-3 text-sm font-bold text-slate-700 hover:bg-slate-100">Enviar outra publicação</button>
+              </div>
+            </div>
+          </section>
+        `;
+      }
+
+      const kindButtons = [
+        { key: 'notice', label: 'Aviso no Mural', icon: 'fa-bullhorn' },
+        { key: 'event', label: 'Evento na Agenda', icon: 'fa-calendar-days' },
+        { key: 'project', label: 'Projeto', icon: 'fa-diagram-project' },
+        { key: 'opportunity', label: 'Oportunidade', icon: 'fa-lightbulb' }
+      ];
+
+      return `
+        ${pageBanner('Envio de Divulgação', 'Enviar Nova Publicação', 'Escolha o tipo de divulgação abaixo. Seu envio será vinculado ao seu e-mail acadêmico e analisado pela moderação.')}
+        <section class="mx-auto max-w-3xl px-5 py-10 sm:px-8">
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+            <div class="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-brand-100 bg-brand-50 px-4 py-3 text-xs text-brand-900">
+              <span><i class="fa-solid fa-user-check mr-1.5"></i> Enviando como <strong>${esc(state.currentUser.name)}</strong> (${esc(state.currentUser.email)})</span>
+              <span class="rounded-full bg-white px-2.5 py-0.5 font-bold text-brand-800">${esc(state.currentUser.role)}</span>
+            </div>
+
+            <div class="mt-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-500">1. Escolha o tipo de publicação</p>
+              <div class="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                ${kindButtons.map(k => `
+                  <button type="button" onclick="setPublishKind('${k.key}')" class="flex flex-col items-center gap-2 rounded-2xl border p-3.5 text-center transition-all ${publishKind === k.key ? 'border-brand-900 bg-brand-900 text-white shadow-sm' : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-brand-300 hover:bg-brand-50'}">
+                    <i class="fa-solid ${k.icon} text-lg"></i>
+                    <span class="text-xs font-bold">${k.label}</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <form id="publishForm" class="mt-7 space-y-4">
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-500">2. Preencha os dados da divulgação</p>
+              ${renderDynamicFields(publishKind, {})}
+              <div class="flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                <p class="text-xs text-slate-500"><i class="fa-solid fa-shield-halved mr-1 text-brand-700"></i> Passará por revisão da equipe de moderação.</p>
+                <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-900 px-7 py-3.5 text-sm font-bold text-white shadow-sm hover:bg-brand-800">
+                  <i class="fa-solid fa-paper-plane text-xs"></i> Enviar para moderação
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      `;
+    }
+
+    function setPublishKind(kind) {
+      publishKind = kind;
+      renderView();
+    }
+
+    function renderDynamicFields(kind, data = {}) {
+      const inputCls = 'mt-1.5 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100';
+      const labelCls = 'block text-xs font-bold uppercase tracking-wider text-slate-600';
+
+      if (kind === 'project') {
+        return `
+          <div>
+            <label class="${labelCls}">Título do projeto *</label>
+            <input name="title" type="text" required value="${esc(data.title || '')}" placeholder="Ex.: Robótica Educacional nas Escolas" class="${inputCls}" />
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="${labelCls}">Eixo *</label>
+              <select name="axis" class="${inputCls}">
+                ${['Extensão', 'Ensino', 'Pesquisa'].map(v => `<option value="${v}" ${data.axis === v ? 'selected' : ''}>${v}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="${labelCls}">Modalidade *</label>
+              <input name="modality" type="text" required value="${esc(data.modality || '')}" placeholder="Ex.: Monitoria, Curso de Extensão, PIBIC" class="${inputCls}" />
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="${labelCls}">Coordenação / Responsável *</label>
+              <input name="coordinator" type="text" required value="${esc(data.coordinator || '')}" placeholder="Ex.: Prof. Maria Oliveira" class="${inputCls}" />
+            </div>
+            <div>
+              <label class="${labelCls}">URL da imagem (opcional)</label>
+              <input name="image" type="url" value="${esc(data.image || '')}" placeholder="https://..." class="${inputCls}" />
+            </div>
+          </div>
+          <div>
+            <label class="${labelCls}">Descrição completa *</label>
+            <textarea name="description" rows="4" required placeholder="Explique objetivos, público atendido e atividades do projeto..." class="${inputCls}">${esc(data.description || '')}</textarea>
+          </div>
+          <div>
+            <label class="${labelCls}">Como participar (opcional)</label>
+            <input name="howToJoin" type="text" value="${esc(data.howToJoin || '')}" placeholder="Ex.: Procurar a coordenação ou enviar e-mail institucional" class="${inputCls}" />
+          </div>
+        `;
+      }
+
+      if (kind === 'notice') {
+        return `
+          <div>
+            <label class="${labelCls}">Título do aviso *</label>
+            <input name="title" type="text" required value="${esc(data.title || '')}" placeholder="Ex.: Prazo final para renovação de matrícula" class="${inputCls}" />
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="${labelCls}">Categoria *</label>
+              <select name="type" class="${inputCls}">
+                ${['Comunicado', 'Inscrição', 'Reunião'].map(v => `<option value="${v}" ${data.type === v ? 'selected' : ''}>${v}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="${labelCls}">Prazo / Data limite *</label>
+              <input name="deadline" type="date" required value="${esc(brToIso(data.deadline || ''))}" class="${inputCls}" />
+            </div>
+          </div>
+          <div>
+            <label class="${labelCls}">Setor ou responsável *</label>
+            <input name="author" type="text" required value="${esc(data.author || (state.currentUser ? `${state.currentUser.name} (${state.currentUser.role})` : ''))}" placeholder="Ex.: Coordenação de Ensino" class="${inputCls}" />
+          </div>
+          <div>
+            <label class="${labelCls}">Conteúdo do comunicado *</label>
+            <textarea name="description" rows="4" required placeholder="Descreva as informações essenciais, horários e orientações..." class="${inputCls}">${esc(data.description || '')}</textarea>
+          </div>
+        `;
+      }
+
+      if (kind === 'event') {
+        return `
+          <div>
+            <label class="${labelCls}">Título do evento *</label>
+            <input name="title" type="text" required value="${esc(data.title || '')}" placeholder="Ex.: Oficina de Desenvolvimento Web" class="${inputCls}" />
+          </div>
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div>
+              <label class="${labelCls}">Categoria *</label>
+              <select name="category" class="${inputCls}">
+                ${['Palestra', 'Oficina', 'Competição', 'Reunião'].map(v => `<option value="${v}" ${data.category === v ? 'selected' : ''}>${v}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="${labelCls}">Data *</label>
+              <input name="date" type="date" required value="${esc(brToIso(data.date || ''))}" class="${inputCls}" />
+            </div>
+            <div>
+              <label class="${labelCls}">Horário *</label>
+              <input name="time" type="time" required value="${esc(data.time || '14:00')}" class="${inputCls}" />
+            </div>
+          </div>
+          <div>
+            <label class="${labelCls}">Local *</label>
+            <input name="location" type="text" required value="${esc(data.location || '')}" placeholder="Ex.: Auditório Zara Hoffmann" class="${inputCls}" />
+          </div>
+          <div>
+            <label class="${labelCls}">Descrição do evento *</label>
+            <textarea name="description" rows="4" required placeholder="Informe programação, público-alvo e se haverá emissão de certificado..." class="${inputCls}">${esc(data.description || '')}</textarea>
+          </div>
+        `;
+      }
+
+      return `
+        <div>
+          <label class="${labelCls}">Título da oportunidade *</label>
+          <input name="title" type="text" required value="${esc(data.title || '')}" placeholder="Ex.: Bolsa de Extensão — Laboratório Maker" class="${inputCls}" />
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label class="${labelCls}">Tipo *</label>
+            <select name="type" class="${inputCls}">
+              ${['Bolsa', 'Estágio', 'Voluntariado', 'Seleção'].map(v => `<option value="${v}" ${data.type === v ? 'selected' : ''}>${v}</option>`).join('')}
+            </select>
+          </div>
+          <div>
+            <label class="${labelCls}">Inscrições até *</label>
+            <input name="deadline" type="date" required value="${esc(brToIso(data.deadline || ''))}" class="${inputCls}" />
+          </div>
+        </div>
+        <div>
+          <label class="${labelCls}">Benefício / Remuneração / Certificado *</label>
+          <input name="benefit" type="text" required value="${esc(data.benefit || '')}" placeholder="Ex.: R$ 700,00 mensais por 12 meses" class="${inputCls}" />
+        </div>
+        <div>
+          <label class="${labelCls}">Descrição da vaga *</label>
+          <textarea name="description" rows="3" required placeholder="Detalhe as atividades que o selecionado irá desenvolver..." class="${inputCls}">${esc(data.description || '')}</textarea>
+        </div>
+        <div>
+          <label class="${labelCls}">Requisitos (opcional)</label>
+          <input name="requirements" type="text" value="${esc(data.requirements || '')}" placeholder="Ex.: Estudante regularmente matriculado com disponibilidade de 12h semanais" class="${inputCls}" />
+        </div>
+      `;
+    }
+
+    function extractPayloadFromForm(kind, form) {
+      const fd = new FormData(form);
+      if (kind === 'project') {
+        return {
+          title: fd.get('title').trim(),
+          axis: fd.get('axis'),
+          modality: fd.get('modality').trim(),
+          coordinator: fd.get('coordinator').trim(),
+          image: fd.get('image').trim() || FALLBACK_CARD,
+          description: fd.get('description').trim(),
+          howToJoin: fd.get('howToJoin').trim()
+        };
+      }
+      if (kind === 'notice') {
+        return {
+          title: fd.get('title').trim(),
+          type: fd.get('type'),
+          publishedAt: formatTodayBR(),
+          deadline: isoToBR(fd.get('deadline')),
+          author: fd.get('author').trim(),
+          description: fd.get('description').trim()
+        };
+      }
+      if (kind === 'event') {
+        return {
+          title: fd.get('title').trim(),
+          category: fd.get('category'),
+          date: isoToBR(fd.get('date')),
+          time: fd.get('time'),
+          location: fd.get('location').trim(),
+          description: fd.get('description').trim()
+        };
+      }
+      return {
+        title: fd.get('title').trim(),
+        type: fd.get('type'),
+        deadline: isoToBR(fd.get('deadline')),
+        benefit: fd.get('benefit').trim(),
+        description: fd.get('description').trim(),
+        requirements: fd.get('requirements').trim()
+      };
+    }
+
+    function viewMySubmissions() {
+      if (!state.currentUser) {
+        return `
+          ${pageBanner('Acompanhamento', 'Meus Envios', 'Acompanhe o andamento das publicações enviadas com seu e-mail acadêmico.')}
+          <section class="mx-auto max-w-xl px-5 py-14 sm:px-8">
+            <div class="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+              <span class="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-100 text-2xl text-brand-900">
+                <i class="fa-solid fa-inbox"></i>
+              </span>
+              <h2 class="mt-5 font-heading text-2xl font-extrabold text-slate-900">Acesse sua conta acadêmica</h2>
+              <p class="mt-2 text-sm leading-6 text-slate-600">Entre com seu e-mail institucional do IF Goiano para visualizar o status das suas publicações enviadas.</p>
+              <button type="button" onclick="postLoginRedirect='meus-envios'; navigate('entrar');" class="mt-7 inline-flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3.5 text-sm font-bold text-white hover:bg-brand-800">
+                <i class="fa-solid fa-right-to-bracket"></i> Entrar agora
+              </button>
+            </div>
+          </section>
+        `;
+      }
+
+      const mySubs = state.submissions.filter(s => s.authorEmail.toLowerCase() === state.currentUser.email.toLowerCase());
+
+      const statusBadge = (status) => {
+        if (status === 'aprovado') return '<span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-900"><i class="fa-solid fa-circle-check"></i> Aprovado e publicado</span>';
+        if (status === 'rejeitado') return '<span class="inline-flex items-center gap-1.5 rounded-full bg-red-100 px-3 py-1 text-xs font-bold text-red-800"><i class="fa-solid fa-circle-xmark"></i> Não aprovado</span>';
+        return '<span class="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900"><i class="fa-regular fa-clock"></i> Em revisão</span>';
+      };
+
+      return `
+        ${pageBanner('Acompanhamento em Tempo Real', 'Meus Envios', `Publicações vinculadas a ${state.currentUser.email}`)}
+        <section class="mx-auto max-w-5xl px-5 py-10 sm:px-8">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <p class="text-sm font-semibold text-slate-600">${mySubs.length} envio(s) registrado(s)</p>
+            <button type="button" onclick="navigate('publicar')" class="inline-flex items-center gap-2 rounded-full bg-brand-900 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-800">
+              <i class="fa-solid fa-plus text-xs"></i> Nova publicação
+            </button>
+          </div>
+
+          ${mySubs.length ? `
+            <div class="mt-6 grid gap-4">
+              ${mySubs.map(s => `
+                <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">${esc(getKindLabel(s.kind))}</span>
+                      ${statusBadge(s.status)}
+                    </div>
+                    <span class="text-xs font-medium text-slate-400">Enviado em ${esc(s.submittedAt)}</span>
+                  </div>
+                  <h3 class="mt-3 font-heading text-lg font-bold text-slate-900">${esc(s.payload.title)}</h3>
+                  <p class="mt-1.5 text-sm leading-6 text-slate-600">${esc(s.payload.description)}</p>
+                  ${s.status === 'rejeitado' && s.rejectionReason ? `
+                    <div class="mt-4 rounded-2xl border border-red-200 bg-red-50 p-3.5 text-xs text-red-900">
+                      <strong>Justificativa da moderação:</strong> ${esc(s.rejectionReason)}
+                    </div>
+                  ` : ''}
+                  ${s.status === 'pendente' ? `
+                    <div class="mt-4 flex justify-end border-t border-slate-100 pt-3">
+                      <button type="button" onclick="deletePendingSubmission('${esc(s.id)}')" class="inline-flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2 text-xs font-bold text-red-700 hover:bg-red-100">
+                        <i class="fa-regular fa-trash-can"></i> Excluir envio pendente
+                      </button>
+                    </div>
+                  ` : ''}
+                </article>
+              `).join('')}
+            </div>
+          ` : `
+            <div class="mt-8 rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
+              <i class="fa-solid fa-paper-plane text-3xl text-slate-300"></i>
+              <p class="mt-3 font-heading text-lg font-bold text-slate-700">Você ainda não enviou publicações</p>
+              <p class="mt-1 text-sm text-slate-500">Clique no botão acima para divulgar um projeto, aviso, evento ou oportunidade.</p>
+            </div>
+          `}
+        </section>
+      `;
+    }
+
+    function deletePendingSubmission(subId) {
+      openConfirmModal(
+        'Excluir envio pendente?',
+        'Esta ação removerá sua solicitação da fila de moderação permanentemente.',
+        () => {
+          state.submissions = state.submissions.filter(s => s.id !== subId);
+          saveState();
+          renderView();
+          showToast('Envio pendente removido.', 'info');
+        },
+        'Excluir'
+      );
+    }
+
+    function viewModeration() {
+      if (!state.isModerator) {
+        return `
+          ${pageBanner('Gestão Institucional', 'Área do Moderador', 'Painel restrito à equipe responsável pela curadoria e publicação de conteúdos no Conecta IF.')}
+          <section class="mx-auto max-w-md px-5 py-14 sm:px-8">
+            <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8">
+              <div class="text-center">
+                <span class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-2xl text-amber-800">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </span>
+                <h2 class="mt-4 font-heading text-2xl font-extrabold text-slate-900">Autenticação da Moderação</h2>
+                <p class="mt-1.5 text-sm text-slate-500">Insira o código único institucional para acessar o painel de gerenciamento.</p>
+              </div>
+
+              <div id="modErrorBox" class="mt-5 hidden items-start gap-2.5 rounded-2xl border border-red-200 bg-red-50 p-3.5 text-xs font-semibold text-red-800">
+                <i class="fa-solid fa-circle-exclamation mt-0.5 text-sm text-red-600"></i>
+                <span id="modErrorText">Código inválido. Acesso restrito à equipe de moderação.</span>
+              </div>
+
+              <form id="modLoginForm" class="mt-5 space-y-4">
+                <div>
+                  <label for="modCodeInput" class="block text-xs font-bold uppercase tracking-wider text-slate-600">Código único de acesso da moderação</label>
+                  <div class="relative mt-1.5">
+                    <input id="modCodeInput" type="password" required autocomplete="off" placeholder="Digite o código único" class="w-full rounded-2xl border border-slate-200 bg-slate-50 py-3.5 pl-4 pr-11 text-sm font-medium outline-none focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-100" />
+                    <button type="button" onclick="togglePasswordField('modCodeInput', this)" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700" aria-label="Mostrar ou ocultar código">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+                <button type="submit" class="w-full rounded-2xl bg-brand-900 py-3.5 text-sm font-bold text-white shadow-sm hover:bg-brand-800">
+                  <i class="fa-solid fa-unlock-keyhole mr-1.5"></i> Acessar Painel
+                </button>
+              </form>
+            </div>
+          </section>
+        `;
+      }
+
+      const pendingList = state.submissions.filter(s => s.status === 'pendente');
+
+      const tabs = [
+        { key: 'pendentes', label: 'Fila de moderação', count: pendingList.length, icon: 'fa-clock' },
+        { key: 'projects', label: 'Projetos', count: state.projects.length, icon: 'fa-diagram-project' },
+        { key: 'notices', label: 'Mural', count: state.notices.length, icon: 'fa-bullhorn' },
+        { key: 'events', label: 'Agenda', count: state.events.length, icon: 'fa-calendar-days' },
+        { key: 'opportunities', label: 'Oportunidades', count: state.opportunities.length, icon: 'fa-lightbulb' }
+      ];
+
+      return `
+        <section class="border-b border-brand-900/10 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 px-5 py-10 text-white sm:px-8">
+          <div class="mx-auto flex max-w-7xl flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-300">
+                <i class="fa-solid fa-shield-halved"></i> Modo Moderador Ativo
+              </p>
+              <h1 class="mt-2 font-heading text-3xl font-extrabold sm:text-4xl">Painel de Gerenciamento</h1>
+              <p class="mt-1 text-sm text-white/80">Aprove envios acadêmicos, edite publicações ou cadastre conteúdos diretamente no Conecta IF.</p>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <button type="button" onclick="confirmResetDefaultData()" class="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-4 py-2.5 text-xs font-bold text-white hover:bg-white/20">
+                <i class="fa-solid fa-rotate-left"></i> Restaurar dados padrão
+              </button>
+              <button type="button" onclick="logoutModerator()" class="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 text-xs font-bold text-brand-950 hover:bg-brand-100">
+                <i class="fa-solid fa-right-from-bracket"></i> Sair da moderação
+              </button>
+            </div>
+          </div>
+
+          <div class="mx-auto mt-8 grid max-w-7xl grid-cols-2 gap-3 sm:grid-cols-5">
+            <div class="rounded-2xl border border-amber-300/30 bg-amber-400/15 p-4 backdrop-blur-sm">
+              <p class="text-[0.68rem] font-bold uppercase tracking-wider text-amber-200">Pendentes</p>
+              <p class="mt-1 font-heading text-2xl font-extrabold text-white">${pendingList.length}</p>
+            </div>
+            <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+              <p class="text-[0.68rem] font-bold uppercase tracking-wider text-white/75">Projetos</p>
+              <p class="mt-1 font-heading text-2xl font-extrabold text-white">${state.projects.length}</p>
+            </div>
+            <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+              <p class="text-[0.68rem] font-bold uppercase tracking-wider text-white/75">Avisos</p>
+              <p class="mt-1 font-heading text-2xl font-extrabold text-white">${state.notices.length}</p>
+            </div>
+            <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm">
+              <p class="text-[0.68rem] font-bold uppercase tracking-wider text-white/75">Eventos</p>
+              <p class="mt-1 font-heading text-2xl font-extrabold text-white">${state.events.length}</p>
+            </div>
+            <div class="col-span-2 rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-sm sm:col-span-1">
+              <p class="text-[0.68rem] font-bold uppercase tracking-wider text-white/75">Oportunidades</p>
+              <p class="mt-1 font-heading text-2xl font-extrabold text-white">${state.opportunities.length}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-5 py-8 sm:px-8">
+          <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
+            ${tabs.map(t => `
+              <button type="button" onclick="setModTab('${t.key}')" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-bold transition-all ${modActiveTab === t.key ? 'bg-brand-900 text-white shadow-sm' : 'bg-white text-slate-600 border border-slate-200 hover:bg-brand-50 hover:text-brand-900'}">
+                <i class="fa-solid ${t.icon} text-xs"></i>
+                <span>${t.label}</span>
+                <span class="rounded-full px-2 py-0.5 text-[0.68rem] ${modActiveTab === t.key ? 'bg-white/20 text-white' : (t.key === 'pendentes' && t.count > 0 ? 'bg-amber-100 text-amber-900' : 'bg-slate-100 text-slate-600')}">${t.count}</span>
+              </button>
+            `).join('')}
+          </div>
+
+          <div class="mt-6">
+            ${renderModTabContent(pendingList)}
+          </div>
+        </section>
+      `;
+    }
+
+    function setModTab(tab) {
+      modActiveTab = tab;
+      renderView();
+    }
+
+    function renderModTabContent(pendingList) {
+      if (modActiveTab === 'pendentes') {
+        if (!pendingList.length) {
+          return `
+            <div class="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
+              <span class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-100 text-2xl text-brand-800"><i class="fa-solid fa-check-double"></i></span>
+              <h3 class="mt-4 font-heading text-lg font-bold text-slate-800">Fila de moderação zerada!</h3>
+              <p class="mt-1 text-sm text-slate-500">Todas as solicitações enviadas pela comunidade acadêmica já foram revisadas.</p>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="grid gap-4">
+            ${pendingList.map(s => `
+              <article class="rounded-3xl border border-amber-200 bg-white p-6 shadow-sm">
+                <div class="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="rounded-full bg-amber-100 px-3 py-0.5 text-xs font-bold text-amber-900">Pendente</span>
+                      <span class="rounded-full bg-brand-100 px-3 py-0.5 text-xs font-bold text-brand-900">${esc(getKindLabel(s.kind))}</span>
+                      <span class="text-xs text-slate-400">Enviado em ${esc(s.submittedAt)}</span>
+                    </div>
+                    <h3 class="mt-3 font-heading text-xl font-bold text-slate-900">${esc(s.payload.title)}</h3>
+                    <p class="mt-1 text-xs font-medium text-slate-500">
+                      <i class="fa-solid fa-envelope mr-1 text-brand-700"></i> ${esc(s.authorName)} · <strong>${esc(s.authorEmail)}</strong> (${esc(s.authorRole)})
+                    </p>
+                  </div>
+                </div>
+                <p class="mt-3 text-sm leading-6 text-slate-600">${esc(s.payload.description)}</p>
+
+                <div class="mt-4 flex flex-wrap gap-3 rounded-2xl bg-slate-50 p-3.5 text-xs text-slate-700">
+                  ${s.kind === 'notice' ? `<span><strong>Categoria:</strong> ${esc(s.payload.type)}</span><span><strong>Prazo:</strong> ${esc(s.payload.deadline)}</span><span><strong>Setor:</strong> ${esc(s.payload.author)}</span>` : ''}
+                  ${s.kind === 'event' ? `<span><strong>Categoria:</strong> ${esc(s.payload.category)}</span><span><strong>Data:</strong> ${esc(s.payload.date)} às ${esc(s.payload.time)}</span><span><strong>Local:</strong> ${esc(s.payload.location)}</span>` : ''}
+                  ${s.kind === 'project' ? `<span><strong>Eixo:</strong> ${esc(s.payload.axis)}</span><span><strong>Modalidade:</strong> ${esc(s.payload.modality)}</span><span><strong>Coordenação:</strong> ${esc(s.payload.coordinator)}</span>` : ''}
+                  ${s.kind === 'opportunity' ? `<span><strong>Tipo:</strong> ${esc(s.payload.type)}</span><span><strong>Prazo:</strong> até ${esc(s.payload.deadline)}</span><span><strong>Benefício:</strong> ${esc(s.payload.benefit)}</span>` : ''}
+                </div>
+
+                <div class="mt-5 flex flex-wrap justify-end gap-2.5 border-t border-slate-100 pt-4">
+                  <button type="button" onclick="openRejectModal('${esc(s.id)}')" class="inline-flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-xs font-bold text-red-700 hover:bg-red-100">
+                    <i class="fa-solid fa-xmark"></i> Rejeitar
+                  </button>
+                  <button type="button" onclick="approveSubmission('${esc(s.id)}')" class="inline-flex items-center gap-2 rounded-xl bg-brand-900 px-5 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-brand-800">
+                    <i class="fa-solid fa-check"></i> Aprovar e Publicar
+                  </button>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      const mapKind = {
+        projects: { kind: 'project', label: 'Projeto', items: state.projects },
+        notices: { kind: 'notice', label: 'Aviso', items: state.notices },
+        events: { kind: 'event', label: 'Evento', items: state.events },
+        opportunities: { kind: 'opportunity', label: 'Oportunidade', items: state.opportunities }
+      }[modActiveTab];
+
+      return `
+        <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <p class="text-sm font-semibold text-slate-600">${mapKind.items.length} item(ns) publicado(s)</p>
+          <button type="button" onclick="openModCrudModal('${mapKind.kind}', null)" class="inline-flex items-center gap-2 rounded-full bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-brand-800">
+            <i class="fa-solid fa-plus text-xs"></i> Novo item (${mapKind.label})
+          </button>
+        </div>
+
+        <div class="grid gap-3.5">
+          ${mapKind.items.map(item => `
+            <div class="flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:flex-row sm:items-center">
+              <div class="min-w-0 flex-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-brand-100 px-2.5 py-0.5 text-[0.7rem] font-bold text-brand-900">
+                    ${esc(item.axis || item.type || item.category)}
+                  </span>
+                  ${item.date ? `<span class="text-xs font-semibold text-slate-500">${esc(item.date)} · ${esc(item.time)}</span>` : ''}
+                  ${item.deadline ? `<span class="text-xs font-semibold text-slate-500">Prazo: ${esc(item.deadline)}</span>` : ''}
+                  ${item.modality ? `<span class="text-xs font-semibold text-slate-500">${esc(item.modality)}</span>` : ''}
+                </div>
+                <h4 class="mt-2 font-heading text-base font-bold text-slate-900">${esc(item.title)}</h4>
+                <p class="mt-1 truncate text-xs text-slate-500">${esc(item.description)}</p>
+              </div>
+              <div class="flex shrink-0 items-center gap-2">
+                <button type="button" onclick="openModCrudModal('${mapKind.kind}', '${esc(item.id)}')" class="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-bold text-slate-700 hover:border-brand-300 hover:bg-brand-50 hover:text-brand-900">
+                  <i class="fa-regular fa-pen-to-square"></i> Editar
+                </button>
+                <button type="button" onclick="deletePublishedItem('${modActiveTab}', '${esc(item.id)}')" class="inline-flex items-center gap-1.5 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2 text-xs font-bold text-red-700 hover:bg-red-100">
+                  <i class="fa-regular fa-trash-can"></i> Excluir
+                </button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function approveSubmission(subId) {
+      const sub = state.submissions.find(s => s.id === subId);
+      if (!sub) return;
+
+      const newId = `${sub.kind}-${Date.now()}`;
+      const newItem = { id: newId, ...sub.payload };
+
+      if (sub.kind === 'project') state.projects.unshift(newItem);
+      else if (sub.kind === 'notice') state.notices.unshift(newItem);
+      else if (sub.kind === 'event') state.events.unshift(newItem);
+      else if (sub.kind === 'opportunity') state.opportunities.unshift(newItem);
+
+      sub.status = 'aprovado';
+      sub.rejectionReason = '';
+      saveState();
+      renderView();
+      showToast(`"${sub.payload.title}" aprovado e publicado no site!`);
+    }
+
+    function openRejectModal(subId) {
+      document.getElementById('rejectSubmissionId').value = subId;
+      document.getElementById('rejectReasonInput').value = '';
+      const modal = document.getElementById('rejectModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeRejectModal() {
+      const modal = document.getElementById('rejectModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.getElementById('rejectForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const subId = document.getElementById('rejectSubmissionId').value;
+      const reason = document.getElementById('rejectReasonInput').value.trim();
+      const sub = state.submissions.find(s => s.id === subId);
+      if (!sub || !reason) return;
+
+      sub.status = 'rejeitado';
+      sub.rejectionReason = reason;
+      saveState();
+      closeRejectModal();
+      renderView();
+      showToast('Publicação marcada como não aprovada. Justificativa enviada ao autor.', 'info');
+    });
+
+    function openModCrudModal(kind, editId) {
+      const collectionMap = {
+        project: 'projects',
+        notice: 'notices',
+        event: 'events',
+        opportunity: 'opportunities'
+      };
+      const colKey = collectionMap[kind];
+      const existing = editId ? state[colKey].find(i => i.id === editId) : null;
+
+      const modal = document.getElementById('modFormModal');
+      const box = document.getElementById('modFormModalContent');
+      box.innerHTML = `
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-900">${esc(getKindLabel(kind))}</span>
+            <h3 class="mt-2 font-heading text-xl font-extrabold text-slate-900">${existing ? 'Editar publicação' : 'Publicar novo item diretamente'}</h3>
+          </div>
+          <button type="button" onclick="closeModCrudModal()" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="modCrudForm" class="mt-5 space-y-4">
+          ${renderDynamicFields(kind, existing || {})}
+          <div class="flex justify-end gap-2.5 border-t border-slate-100 pt-4">
+            <button type="button" onclick="closeModCrudModal()" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50">Cancelar</button>
+            <button type="submit" class="rounded-xl bg-brand-900 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-800">${existing ? 'Salvar alterações' : 'Publicar agora'}</button>
+          </div>
+        </form>
+      `;
+
+      document.getElementById('modCrudForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const payload = extractPayloadFromForm(kind, e.target);
+        if (existing) {
+          if (kind === 'notice' && existing.publishedAt) {
+            payload.publishedAt = existing.publishedAt;
+          }
+          Object.assign(existing, payload);
+          showToast('Alterações salvas com sucesso!');
+        } else {
+          state[colKey].unshift({ id: `${kind}-${Date.now()}`, ...payload });
+          showToast('Novo item publicado diretamente no site!');
+        }
+        saveState();
+        closeModCrudModal();
+        renderView();
+      });
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModCrudModal() {
+      const modal = document.getElementById('modFormModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modFormModal').addEventListener('click', (e) => {
+      if (e.target.id === 'modFormModal') closeModCrudModal();
+    });
+
+    function deletePublishedItem(collectionKey, id) {
+      openConfirmModal(
+        'Excluir publicação do site?',
+        'Este item será removido imediatamente da visualização pública e dos contadores da página inicial.',
+        () => {
+          state[collectionKey] = state[collectionKey].filter(item => item.id !== id);
+          saveState();
+          renderView();
+          showToast('Publicação excluída.', 'info');
+        },
+        'Excluir'
+      );
+    }
+
+    function logoutModerator() {
+      state.isModerator = false;
+      saveState();
+      renderView();
+      showToast('Sessão de moderação encerrada.', 'info');
+    }
+
+    function confirmResetDefaultData() {
+      openConfirmModal(
+        'Restaurar dados padrão?',
+        'Isso restaurará os 4 projetos, 5 avisos, 5 eventos, 5 oportunidades e os 2 envios pendentes iniciais do Conecta IF.',
+        () => {
+          const keepMod = state.isModerator;
+          const keepUser = state.currentUser;
+          state = getDefaultData();
+          state.isModerator = keepMod;
+          state.currentUser = keepUser;
+          saveState();
+          renderView();
+          showToast('Dados originais do Conecta IF restaurados!');
+        },
+        'Restaurar'
+      );
+    }
+
+    function setFilter(page, key, val) {
+      filters[page][key] = val;
+      renderView();
+    }
+
+    function bindPageEvents() {
+      const bindSearch = (inputId, pageKey) => {
+        const el = document.getElementById(inputId);
+        if (!el) return;
+        el.addEventListener('input', (e) => {
+          const val = e.target.value;
+          const pos = e.target.selectionStart;
+          filters[pageKey].q = val;
+          renderView(false);
+          const refreshed = document.getElementById(inputId);
+          if (refreshed) {
+            refreshed.focus();
+            refreshed.setSelectionRange(pos, pos);
+          }
+        });
+      };
+
+      bindSearch('searchProjetos', 'projetos');
+      bindSearch('searchMural', 'mural');
+      bindSearch('searchAgenda', 'agenda');
+      bindSearch('searchOportunidades', 'oportunidades');
+
+      const authForm = document.getElementById('academicAuthForm');
+      if (authForm) {
+        authForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          hideAuthError();
+
+          const email = document.getElementById('authEmail').value.trim().toLowerCase();
+          const password = document.getElementById('authPassword').value.trim();
+
+          if (!email) {
+            showAuthError('Informe seu e-mail institucional do IF Goiano.');
+            return;
+          }
+
+          if (!isAcademicEmail(email)) {
+            showAuthError('Acesso bloqueado: somente e-mails acadêmicos oficiais (@ifgoiano.edu.br ou @estudante.ifgoiano.edu.br) são permitidos. Contas pessoais como Gmail, Hotmail ou Outlook não são aceitas.');
+            return;
+          }
+
+          if (password.length < 4) {
+            showAuthError('A senha deve ter pelo menos 4 caracteres.');
+            return;
+          }
+
+          if (authMode === 'register') {
+            const name = document.getElementById('authName').value.trim();
+            const role = document.getElementById('authRole').value;
+            if (!name) {
+              showAuthError('Informe seu nome completo.');
+              return;
+            }
+            const exists = state.accounts.find(a => a.email === email);
+            if (exists) {
+              showAuthError('Este e-mail acadêmico já possui cadastro. Alterne para a aba "Entrar".');
+              return;
+            }
+            const newAccount = { name, role, email, password };
+            state.accounts.push(newAccount);
+            state.currentUser = { name, role, email };
+            saveState();
+            showToast(`Conta acadêmica criada! Bem-vindo(a), ${name}.`);
+          } else {
+            const acc = state.accounts.find(a => a.email === email);
+            if (acc) {
+              if (acc.password !== password) {
+                showAuthError('Senha incorreta para este e-mail acadêmico.');
+                return;
+              }
+              state.currentUser = { name: acc.name, role: acc.role, email: acc.email };
+            } else {
+              const derivedName = email.split('@')[0].split(/[._-]/).map(w => w ? w[0].toUpperCase() + w.slice(1) : '').join(' ');
+              const derivedRole = email.endsWith('@estudante.ifgoiano.edu.br') ? 'Estudante' : 'Servidor';
+              const newAcc = { name: derivedName || 'Usuário IF Goiano', role: derivedRole, email, password };
+              state.accounts.push(newAcc);
+              state.currentUser = { name: newAcc.name, role: newAcc.role, email: newAcc.email };
+            }
+            saveState();
+            showToast(`Bem-vindo(a), ${state.currentUser.name}!`);
+          }
+
+          const redirect = postLoginRedirect || 'publicar';
+          postLoginRedirect = null;
+          navigate(redirect);
+        });
+      }
+
+      const pubForm = document.getElementById('publishForm');
+      if (pubForm) {
+        pubForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!state.currentUser) {
+            postLoginRedirect = 'publicar';
+            navigate('entrar');
+            return;
+          }
+          const payload = extractPayloadFromForm(publishKind, pubForm);
+          const submission = {
+            id: `sub-${Date.now()}`,
+            kind: publishKind,
+            status: 'pendente',
+            submittedAt: formatTodayBR(),
+            authorEmail: state.currentUser.email,
+            authorName: state.currentUser.name,
+            authorRole: state.currentUser.role,
+            rejectionReason: '',
+            payload
+          };
+          state.submissions.unshift(submission);
+          saveState();
+          publishSuccessState = true;
+          renderView();
+          showToast('Publicação enviada para a fila de moderação!');
+        });
+      }
+
+      const modForm = document.getElementById('modLoginForm');
+      if (modForm) {
+        modForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const code = document.getElementById('modCodeInput').value;
+          const errBox = document.getElementById('modErrorBox');
+
+          if (code === MODERATOR_SECRET) {
+            state.isModerator = true;
+            saveState();
+            renderView();
+            showToast('Acesso de moderação liberado com sucesso!');
+          } else {
+            errBox.classList.remove('hidden');
+            errBox.classList.add('flex');
+            document.getElementById('modCodeInput').focus();
+          }
+        });
+      }
+    }
+
+    document.getElementById('rejectModal').addEventListener('click', (e) => {
+      if (e.target.id === 'rejectModal') closeRejectModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      closeDetailModal();
+      closeModCrudModal();
+      closeRejectModal();
+      if (!drawerEl.classList.contains('translate-x-full')) closeDrawer();
+    });
+
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      const header = document.getElementById('siteHeader');
+      const scrolled = window.scrollY > 320;
+      btn.classList.toggle('opacity-0', !scrolled);
+      btn.classList.toggle('pointer-events-none', !scrolled);
+      btn.classList.toggle('translate-y-4', !scrolled);
+      header.classList.toggle('shadow-sm', window.scrollY > 20);
+    });
+
+    window.addEventListener('hashchange', () => {
+      const hashRoute = window.location.hash.replace('#', '') || 'inicio';
+      if (hashRoute !== currentRoute) {
+        navigate(hashRoute);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const initialRoute = window.location.hash.replace('#', '') || 'inicio';
+      currentRoute = VALID_ROUTES.includes(initialRoute) ? initialRoute : 'inicio';
+      renderHeaderAuth();
+      updateActiveNav();
+      renderView();
+    });
+  </script>
+</body>
+</html>
